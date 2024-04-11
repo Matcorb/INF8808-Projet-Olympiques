@@ -49,15 +49,27 @@ template.set_default_theme()
 app.layout = html.Div(
     children=[
         html.H1(children="Beijing 2022 Olympic Winter Games"),
-        html.Div([html.H3(children=["The Olympics are one of the most viewed sporting events as it attracts fans from all over the world. The 2022 Winter Olympics were set in Beijing and saw 2893 athletes from 84 different countries competing for medals in 15 different disciplines. The following visualizations present an in depth analysis on the countries' and athletes' performances across the various sports.",
-                                    html.Br(),
-                                    html.Br(),
-                                    "We did the work so you don't have to. Scroll down and enjoy!"]),
+        html.Div([
+            html.H3(children=[
+                "The Olympics are one of the most viewed sporting events as it attracts fans from all over the world. The 2022 Winter Olympics were set in Beijing and saw 2893 athletes from 84 different countries competing for medals in 15 different disciplines. The following visualizations present an in depth analysis on the countries' and athletes' performances across the various sports.",
+                html.Br(),
+                html.Br(),
+                "We did the work so you don't have to. Scroll down and enjoy!"], style={"textAlign": "center"}),
         ], style={"paddingTop": "30px", "width": "70%", "margin": "auto", "textAlign": "center"}),
         html.Img(src="/assets/images/olympic-rings.jpg", style={"mixBlendMode":"multiply", "width": "60%", "display": "block", "margin": "auto"}),
         html.Div([
             html.Div([
-                html.H2(children="Dominating Countries Through Time"),
+                html.H2(children="Most Medaled Countries Through Time"),
+                html.Div([
+                    html.H3(children=[
+                        "How well a country performed at the Olympics is often determined by its amount of medals earned. ",
+                        "Therefore, let's look at which countries got the most medals.",
+                        html.Br(),
+                        html.Br(),
+                        "The following bar chart presents the top 5 countries in terms of number of medals earned (total, gold, silver or bronze) and ",
+                        "even in terms of official rankings (determined by most golds followed by most silvers and finally most bronzes). ",
+                        "You can also use the slider available below the chart to visualize the top 5 countries at any date throughout the competition."], style={"textAlign": "center"}),
+                ], style={"paddingTop": "20px", "width": "70%", "margin": "auto", "textAlign": "center"}),
                 html.Div([
                     dcc.Dropdown(
                         id="order-type-dropdown",
@@ -67,18 +79,19 @@ app.layout = html.Div(
                         ],
                         value="total medals",
                         clearable=False,
-                        style={"width": "200px", "marginBottom": "10px", "marginLeft": "10px", "backgroundColor": "lightgrey"},
+                        style={"width": "200px", "marginBottom": "10px", "marginLeft": "10px", "backgroundColor": "lightgrey", "fontFamily": "Roboto Slab, serif"},
                     ),
                 ], style={"paddingRight": "10px"},),
                 html.Div([
                     dcc.Graph(id="medals-graph"),
+                    html.H3(children="Interact with the slider below to view the top countries at any date:"),
                     dcc.Slider(
                         id="date-slider",
                         min=dates[0].day,
                         max=dates[-1].day,
                         value=dates[-1].day,
                         marks={
-                            date.day: "February " + str(date.day) + "th 2022"
+                            date.day: "February " + str(date.day) + "th"
                             for date in dates
                         },
                         step=None,
@@ -91,7 +104,15 @@ app.layout = html.Div(
                 ], style={"flex": "1", "backgroundColor": "#f9f0f0"},),
             ], style={"backgroundColor": "#f9f0f0", "paddingBottom": "50px"}),
             html.Div([
-                html.H2(children="Dominating Athletes and Countries"),
+                html.H2(children="Most Medaled Athletes and Countries per Event"),
+                html.Div([
+                    html.H3(children=[
+                        "Certain countries and even athletes can also dominate specific disciplines without being one of the most medaled overall.",
+                        html.Br(),
+                        html.Br(),
+                        "The bar chart below presents the most decorated athletes and countries in the various events. ",
+                        "More information on a square can be seen by hovering over it."], style={"textAlign": "center"}),
+                ], style={"paddingTop": "20px", "width": "70%", "margin": "auto", "textAlign": "center"}),
                 html.Div([
                     html.Div([
                         dcc.Dropdown(
@@ -124,14 +145,24 @@ app.layout = html.Div(
                         [dcc.Graph(id="top-medals-graph")], style={"flex": "1"}
                     ),
                 ], style={"display": "flex", "flexDirection": "column"},),
-            ], style={"backgroundColor": "#FFC0CB", "paddingBottom": "50px"}),
+            ], style={"backgroundColor": "#84c1ff", "paddingBottom": "50px"}),
             html.Div([
                 html.H2(children="Athlete Age and Gender Distribution"),
+                html.Div([
+                    html.H3(children=[
+                        "It can also be interesting to see how different age groups and genders were represented.",
+                        html.Br(),
+                        html.Br(),
+                        "The numerous violin charts found in this visualization present the age distribution ", 
+                        "according to gender and either discipline or country of origin. With these charts, ",
+                        "we can see which age groups were the most represented in number of athletes and which age groups won the most medals."], style={"textAlign": "center"}),
+                ], style={"paddingTop": "20px", "width": "70%", "margin": "auto", "textAlign": "center"}),
                 html.Div([
                     html.Div(
                         dcc.Dropdown(
                             id='violin_graphs_filter',
-                            options=['Discipline', 'Country'],
+                            # options=['Discipline', 'Country'],
+                            options=['Discipline'],
                             value='Discipline',
                             clearable=False,
                             style={'width': '200px', 'marginBottom': '10px', "marginLeft": "10px", "backgroundColor": "lightgrey"}
@@ -143,27 +174,39 @@ app.layout = html.Div(
                         )
                     )
                 ]),
-            ], style={"backgroundColor": "#f9f0f0", "paddingBottom": "50px"}),
+            ], style={"backgroundColor": "#FFFFE0", "paddingBottom": "50px"}),
             html.Div([
-                html.H2(children="Relative Country Performance"),
+                html.H2(children="Country Performance Relative to Representation"),
+                html.Div([
+                    html.H3(children=[
+                        "Every country is represented by a different amount of athletes. Thus, is can be interesting to ",
+                        "compare a country's amount of medals to its number of athletes.",
+                        html.Br(),
+                        html.Br(),
+                        "The ensuing chart presents just that. The blue bars represent a country's number of athletes ", 
+                        "and the red dot its number of medals earned throughout the competition. ",
+                        "We can therefore see that, as an example, the Netherlands gained many medals despite its low representation (17 medals for 41 athletes) ",
+                        "and that Czech Republic on the other hand didn't see the same success (2 medals for 115 athletes)."], style={"textAlign": "center"}),
+                ], style={"paddingTop": "20px", "width": "70%", "margin": "auto", "textAlign": "center"}),
                 html.Div([
                     html.Div([
                         dcc.Dropdown(
                             id='line_bar_graph_filter',
-                            options=['All', 'Won medals'],
+                            # options=['All', 'Won medals'],
+                            options=['All'],
                             value='All',
                             clearable=False,
                             style={'width': '200px', 'marginBottom': '10px', "marginLeft": "10px", "backgroundColor": "lightgrey"}
                         ),
-                        dcc.RadioItems(
-                            id='relative_medal_filter',
-                            options=['Medals', 'Medals per 100'],
-                            value='Medals',
-                            labelStyle={
-                                'display': 'inline-block',
-                                'marginRight': '20px',
-                            },
-                        )
+                        # dcc.RadioItems(
+                        #     id='relative_medal_filter',
+                        #     options=['Medals', 'Medals per 100'],
+                        #     value='Medals',
+                        #     labelStyle={
+                        #         'display': 'inline-block',
+                        #         'marginRight': '20px',
+                        #     },
+                        # )
                     ]),
                     html.Div(
                         dcc.Graph(
@@ -171,7 +214,7 @@ app.layout = html.Div(
                         )
                     )
                 ])
-            ], style={"backgroundColor": "#FFC0CB", "paddingBottom": "50px"}),
+            ], style={"backgroundColor": "#C0D9AF", "paddingBottom": "50px"}),
         ], style={"display": "flex", "flexDirection": "column"},),
     ], style={"padding": "20px", "backgroundColor": "#f9f0f0"},
 )
