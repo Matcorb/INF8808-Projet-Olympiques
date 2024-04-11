@@ -3,9 +3,9 @@ import plotly.express as px
 from template import MEDAL_COLORS
 
 def get_plot(df, type):
-    title = f"Top 5 Countries by {'Medal Count (Official Order)' if type == 'official' else type.capitalize() + ' Medals'}"
+    title = f"Top 5 Countries by {type.capitalize() + ' Medals'}"
     
-    if type in ["official", "total medals"]:
+    if type == "total medals":
         fig = px.bar(df,
                      y="Country",
                      x=["Gold", "Silver", "Bronze"],
