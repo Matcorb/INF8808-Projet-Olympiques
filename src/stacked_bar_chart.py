@@ -46,7 +46,7 @@ def get_top_plot(df, type, graph_type):
             f"Gold: %{{customdata[2]}}<br>"
             f"Silver: %{{customdata[3]}}<br>"
             f"Bronze: %{{customdata[4]}}<br>"
-            f"Represents %{{customdata[1]:.2f}}% of all medals in %{{y}}"
+            f"Won <b>%{{customdata[1]:.2f}}%</b> of all medals in %{{y}}"
         )
     else:
         hover_template = (

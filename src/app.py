@@ -2,7 +2,7 @@
  # @ Create Time: 2024-04-09 15:49:20.397484
 """
 
-from dash import Dash, html, dcc, Input, Output
+from dash import Dash, html, dcc, Input, Output, State, callback_context
 import plotly.express as px
 import pandas as pd
 
@@ -215,35 +215,59 @@ def update_top_figure(selected_top_order_type, graph_type):
         Input("order-type-top-dropdown", "value"),
         Input("graph-type-selection", "value"),
     ],
+    [State("hover-data-box", "children")],
 )
 def display_hover_data(
     hover_data,
-    medal_type,
-    top_graph_type,
+    order_type,
+    graph_type,
+    current_data,
 ):
-    if hover_data:
+    ctx = callback_context
+
+    header_text = "Hover over a bar to see detailed data"
+    gold_text = " "
+    silver_text = " "
+    bronze_text = " "
+    info_text = " "
+
+    if not ctx.triggered or ctx.triggered[0]["prop_id"] in (
+        "order-type-top-dropdown.value",
+        "graph-type-selection.value",
+    ):
+        header_text = "Hover over a bar to see detailed data"
+    elif hover_data:
         data = hover_data["points"][0]
-        print(data)
+        country_or_athlete = data["customdata"][0]
         discipline = data["y"]
-        country = data["customdata"][0]
         percent = data["customdata"][1]
         gold = data["customdata"][2]
         silver = data["customdata"][3]
         bronze = data["customdata"][4]
 
-        return html.Div(
-            [
-                html.H3(f"{country} in {discipline}"),
-                html.P(f"Gold: {gold}"),
-                html.P(f"Silver: {silver}"),
-                html.P(f"Bronze: {bronze}"),
-                html.P(
-                    f"This {top_graph_type} has won {percent:.2f}% of {medal_type} medals in {discipline}"
-                ),
-            ]
-        )
-    else:
-        return "Hover over a bar to see detailed data"
+        medal_type = "" if order_type == "total" else order_type
+        header_text = f"{country_or_athlete} - {discipline}"
+        gold_text = f"Gold: {gold}"
+        silver_text = f"Silver: {silver}"
+        bronze_text = f"Bronze: {bronze}"
+        info_text = f"This {graph_type} has won {percent:.2f}% of the {medal_type} medals in {discipline}"
+
+    return html.Div(
+        [
+            html.H3(header_text),
+            html.P(gold_text),
+            html.P(silver_text),
+            html.P(bronze_text),
+            html.P(info_text),
+        ],
+        style={
+            "border": "thin lightgrey solid",
+            "padding": "10px",
+            "margin-top": "5px",
+            "border-radius": "5px",
+            "background-color": "#f9f9f9",
+        },
+    )
 
 
 # Viz 1
