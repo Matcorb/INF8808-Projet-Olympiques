@@ -5,10 +5,12 @@ import plotly.express as px
 colors = px.colors.qualitative.Plotly # Plotly base colors
 
 def get_plot(athletes, medals):
+    title="Distribution of Age, Gender and Medal Count for each Discipline"
     
     # Define figure and layout
     fig = make_subplots(rows=2, cols=17, vertical_spacing=0.1, horizontal_spacing=0.005)
     layout = go.Layout(
+        title=title,
         yaxis=dict(title=dict(text='Athlete age'), range=[10,55], tickvals=np.linspace(10, 55, 10).astype(int)),
         yaxis3=dict(range=[10,55], tickvals=np.linspace(10, 55, 10).astype(int)),
 
@@ -173,4 +175,5 @@ def get_plot(athletes, medals):
             showarrow=False
         )
     ])
+    fig.update_layout(plot_bgcolor="#f9f0f0", paper_bgcolor="#f9f0f0")
     return fig

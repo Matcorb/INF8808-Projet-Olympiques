@@ -1,12 +1,15 @@
 import plotly.express as px
+from datetime import datetime
 
 from template import MEDAL_COLORS
 
 
-def get_plot(df, type):
-    title = f"Top 5 Countries by {type.capitalize() + ' Medals'}"
+def get_plot(df, type, day):
+    title = f"Top 5 Countries by Official Rankings on February {day}th 2022"
+    if type != "official":
+        title = f"Top 5 Countries by {'Total Medals' if type == 'total medals' else type.capitalize() + ' Medals'} on February {day}th 2022"
 
-    if type == "total medals":
+    if type in ["official", "total medals"]:
         fig = px.bar(
             df,
             y="Country",
@@ -30,13 +33,13 @@ def get_plot(df, type):
             category_orders={"Country": df["Country"].tolist()},
         )
     fig.update_layout(
-        legend_orientation="h", legend=dict(y=-0.2, xanchor="center", x=0.5)
+        legend_orientation="h", legend=dict(y=-0.2, xanchor="center", x=0.5), plot_bgcolor="#f9f0f0", paper_bgcolor="#f9f0f0"
     )
     return fig
 
 
 def get_top_plot(df, type, graph_type):
-    title = f"Top {graph_type.capitalize()} with the most {type.capitalize()} Medals by Discipline"
+    title = f"Top {'Athletes' if graph_type == 'athlete' else 'Countries'} with the most {type.capitalize()} Medals by Discipline"
     hover_column = "athlete_name" if graph_type == "athlete" else "country"
 
     if type == "total":
@@ -83,5 +86,5 @@ def get_top_plot(df, type, graph_type):
         autorange="reversed",
         title_text="Discipline",
     )
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=False, plot_bgcolor="#FFC0CB", paper_bgcolor="#FFC0CB")
     return fig

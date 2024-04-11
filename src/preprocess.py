@@ -5,7 +5,9 @@ from datetime import datetime
 def get_top5_medals_by_date(dataframe, day, type):
     date = datetime(year=2022, month=2, day=day)
     filtered_df = dataframe[dataframe["Date"] == date]
-    if type == "total medals":
+    if type == "official":
+        sorted_df = filtered_df.sort_values(by=["Official"], ascending=False).head(5)
+    elif type == "total medals":
         sorted_df = filtered_df.sort_values(by=["Total"], ascending=False).head(5)
     elif type == "gold":
         sorted_df = filtered_df.sort_values(by=["Gold"], ascending=False).head(5)
@@ -48,7 +50,8 @@ def get_country_totals_per_date(dataframe):
     merged_df["Bronze"] = merged_df.groupby("Country")["Bronze"].cumsum()
 
     merged_df["Total"] = merged_df["Gold"] + merged_df["Silver"] + merged_df["Bronze"]
-    return merged_df[["Country", "Gold", "Silver", "Bronze", "Total", "Date"]]
+    merged_df["Official"] = merged_df["Gold"] * 10000 + merged_df["Silver"] * 100 + merged_df["Bronze"]
+    return merged_df[["Country", "Gold", "Silver", "Bronze", "Total", "Official", "Date"]]
 
 
 def get_dates(dataframe):
