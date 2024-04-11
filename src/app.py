@@ -32,16 +32,16 @@ order_types_top = ["total", "gold", "silver", "bronze"]
 order_types_graph = ["athlete", "country"]
 
 # Preprocess line bar chart data
-athletes = pd.read_csv('./assets/data/athletes.csv')
+athletes = pd.read_csv("./assets/data/athletes.csv")
 medals_total = pd.read_csv("./assets/data/medals_total.csv")
 line_bar_data = preprocess.line_bar_data(athletes, medals_total)
 
 # Import and preprocess athlete age data
-athletes = pd.read_csv('./assets/data/athletes.csv')
+athletes = pd.read_csv("./assets/data/athletes.csv")
 athletes = preprocess.athlete_age(athletes)
 
 # Import and preprocess medal athlete age data
-medals = pd.read_csv('./assets/data/medals.csv')
+medals = pd.read_csv("./assets/data/medals.csv")
 medals = preprocess.medal_athlete_age(medals, athletes)
 
 template.set_default_theme()
@@ -127,23 +127,20 @@ app.layout = html.Div(
                     ],
                     style={"display": "flex", "flexDirection": "column"},
                 ),
+                html.Div(id="hover-data-box"),
                 html.H1(children="Athlete age and gender distribution"),
                 html.Div(
                     [
                         html.Div(
                             dcc.Dropdown(
-                                id='violin_graphs_filter',
-                                options=['Discipline', 'Country'],
-                                value='Discipline',
+                                id="violin_graphs_filter",
+                                options=["Discipline", "Country"],
+                                value="Discipline",
                                 clearable=False,
-                                style={'width': '200px', 'marginBottom': '10px'}
+                                style={"width": "200px", "marginBottom": "10px"},
                             )
                         ),
-                        html.Div(
-                            dcc.Graph(
-                                id='violin_graphs'
-                            )
-                        )
+                        html.Div(dcc.Graph(id="violin_graphs")),
                     ]
                 ),
                 html.H1(children="Relative country performance"),
@@ -152,30 +149,26 @@ app.layout = html.Div(
                         html.Div(
                             [
                                 dcc.Dropdown(
-                                    id='line_bar_graph_filter',
-                                    options=['All', 'Won medals'],
-                                    value='All',
+                                    id="line_bar_graph_filter",
+                                    options=["All", "Won medals"],
+                                    value="All",
                                     clearable=False,
-                                    style={'width': '200px', 'marginBottom': '10px'}
+                                    style={"width": "200px", "marginBottom": "10px"},
                                 ),
                                 dcc.RadioItems(
-                                    id='relative_medal_filter',
-                                    options=['Medals', 'Medals per 100'],
-                                    value='Medals',
+                                    id="relative_medal_filter",
+                                    options=["Medals", "Medals per 100"],
+                                    value="Medals",
                                     labelStyle={
-                                        'display': 'inline-block',
-                                        'marginRight': '20px',
+                                        "display": "inline-block",
+                                        "marginRight": "20px",
                                     },
-                                )
+                                ),
                             ]
                         ),
-                        html.Div(
-                            dcc.Graph(
-                                id='line_bar_graph'
-                            )
-                        )
+                        html.Div(dcc.Graph(id="line_bar_graph")),
                     ]
-                )
+                ),
             ],
             style={"display": "flex", "flexDirection": "column"},
         ),
@@ -214,19 +207,57 @@ def update_top_figure(selected_top_order_type, graph_type):
         filtered_df, selected_top_order_type, graph_type
     )
 
+
+@app.callback(
+    Output("hover-data-box", "children"),
+    [
+        Input("top-medals-graph", "hoverData"),
+        Input("order-type-top-dropdown", "value"),
+        Input("graph-type-selection", "value"),
+    ],
+)
+def display_hover_data(
+    hover_data,
+    medal_type,
+    top_graph_type,
+):
+    if hover_data:
+        data = hover_data["points"][0]
+        print(data)
+        discipline = data["y"]
+        country = data["customdata"][0]
+        percent = data["customdata"][1]
+        gold = data["customdata"][2]
+        silver = data["customdata"][3]
+        bronze = data["customdata"][4]
+
+        return html.Div(
+            [
+                html.H3(f"{country} in {discipline}"),
+                html.P(f"Gold: {gold}"),
+                html.P(f"Silver: {silver}"),
+                html.P(f"Bronze: {bronze}"),
+                html.P(
+                    f"This {top_graph_type} has won {percent:.2f}% of {medal_type} medals in {discipline}"
+                ),
+            ]
+        )
+    else:
+        return "Hover over a bar to see detailed data"
+
+
 # Viz 1
 @app.callback(
-    Output('violin_graphs', 'figure'),
-    [Input('violin_graphs_filter', 'value')]
+    Output("violin_graphs", "figure"), [Input("violin_graphs_filter", "value")]
 )
 def update_figure(violin_graphs_filter):
     fig = violin_charts.get_plot(athletes, medals)
     return fig
 
+
 # Viz 4
 @app.callback(
-    Output('line_bar_graph', 'figure'),
-    [Input('line_bar_graph_filter', 'value')]
+    Output("line_bar_graph", "figure"), [Input("line_bar_graph_filter", "value")]
 )
 def update_figure(violin_graphs_filter):
     fig = line_bar_charts.get_plot(line_bar_data)

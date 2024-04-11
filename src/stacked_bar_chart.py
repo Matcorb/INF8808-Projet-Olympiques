@@ -52,7 +52,7 @@ def get_top_plot(df, type, graph_type):
         hover_template = (
             "<b>%{customdata[0]}</b><br>"
             f"{type.capitalize()} Medals: %{{x}}<br>"
-            f"Represents %{{customdata[1]:.2f}}% of all medals in %{{y}}"
+            f"Represents %{{customdata[1]:.2f}}% of all {type} medals in %{{y}}"
         )
 
     fig = px.bar(
@@ -83,5 +83,10 @@ def get_top_plot(df, type, graph_type):
         autorange="reversed",
         title_text="Discipline",
     )
-    fig.update_layout(showlegend=False)
+    fig.update_layout(
+        showlegend=False,
+        coloraxis={
+            "colorbar": {"dtick": 1},
+        },
+    )
     return fig
