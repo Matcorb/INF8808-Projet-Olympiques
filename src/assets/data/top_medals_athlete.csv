@@ -1,0 +1,552 @@
+discipline,gold,silver,bronze,total,athlete_name
+Alpine Skiing,2,1,0,3,STROLZ Johannes
+Alpine Skiing,1,1,0,2,LIENSBERGER Katharina
+Alpine Skiing,1,0,1,2,GISIN Michelle
+Alpine Skiing,1,0,1,2,GUT-BEHRAMI Lara
+Alpine Skiing,1,0,1,2,MAYER Matthias
+Alpine Skiing,1,0,0,1,BRENNSTEINER Stefan
+Alpine Skiing,1,0,0,1,FEUZ Beat
+Alpine Skiing,1,0,0,1,HECTOR Sara
+Alpine Skiing,1,0,0,1,HUBER Katharina
+Alpine Skiing,1,0,0,1,MATT Michael
+Alpine Skiing,1,0,0,1,NOEL Clement
+Alpine Skiing,1,0,0,1,ODERMATT Marco
+Alpine Skiing,1,0,0,1,SUTER Corinne
+Alpine Skiing,1,0,0,1,TRUPPE Katharina
+Alpine Skiing,1,0,0,1,VLHOVA Petra
+Alpine Skiing,0,1,1,2,BRIGNONE Federica
+Alpine Skiing,0,1,1,2,HOLDENER Wendy
+Alpine Skiing,0,1,1,2,KILDE Aleksander Aamodt
+Alpine Skiing,0,1,0,1,AICHER Emma
+Alpine Skiing,0,1,0,1,CLAREY Johan
+Alpine Skiing,0,1,0,1,COCHRAN-SIEGLE Ryan
+Alpine Skiing,0,1,0,1,DUERR Lena
+Alpine Skiing,0,1,0,1,GOGGIA Sofia
+Alpine Skiing,0,1,0,1,KRANJEC Zan
+Alpine Skiing,0,1,0,1,PUCHNER Mirjam
+Alpine Skiing,0,1,0,1,RAUCHFUSS Julian
+Alpine Skiing,0,1,0,1,SCHMID Alexander
+Alpine Skiing,0,1,0,1,STRASSER Linus
+Alpine Skiing,0,0,1,1,CRAWFORD James
+Alpine Skiing,0,0,1,1,DELAGO Nadia
+Alpine Skiing,0,0,1,1,FAIVRE Mathieu
+Alpine Skiing,0,0,1,1,FOSS-SOLEVAAG Sebastian
+Alpine Skiing,0,0,1,1,HAUGAN Timon
+Alpine Skiing,0,0,1,1,HOLTMANN Mina Fuerst
+Alpine Skiing,0,0,1,1,SOLHEIM Fabian Wilkens
+Alpine Skiing,0,0,1,1,STJERNESUND Thea Louise
+Alpine Skiing,0,0,1,1,TVIBERG Maria Therese
+Alpine Skiing,0,0,1,1,WINDINGSTAD Rasmus
+Biathlon,4,0,1,5,BOE Johannes Thingnes
+Biathlon,3,0,2,5,ROEISELAND Marte Olsbu
+Biathlon,2,3,0,5,FILLON MAILLET Quentin
+Biathlon,2,1,1,4,BOE Tarjei
+Biathlon,1,2,0,3,OEBERG Elvira
+Biathlon,1,1,1,3,ECKHOFF Tiril
+Biathlon,1,0,1,2,CHRISTIANSEN Vetle Sjaastad
+Biathlon,1,0,1,2,HERRMANN Denise
+Biathlon,1,0,0,1,BRAISAZ-BOUCHET Justine
+Biathlon,1,0,0,1,BRORSSON Mona
+Biathlon,1,0,0,1,LAEGREID Sturla Holm
+Biathlon,1,0,0,1,OEBERG Hanna
+Biathlon,1,0,0,1,PERSSON Linn
+Biathlon,0,2,0,2,CHEVALIER-BOUCHET Anais
+Biathlon,0,2,0,2,JACQUELIN Emilien
+Biathlon,0,1,1,2,NIGMATULLINA Uliana
+Biathlon,0,1,1,2,REZTSOVA Kristina
+Biathlon,0,1,0,1,CLAUDE Fabien
+Biathlon,0,1,0,1,DESTHIEUX Simon
+Biathlon,0,1,0,1,KAZAKEVICH Irina
+Biathlon,0,1,0,1,MIRONOVA Svetlana
+Biathlon,0,1,0,1,PONSILUOMA Martin
+Biathlon,0,1,0,1,SIMON Julia
+Biathlon,0,1,0,1,SMOLSKI Anton
+Biathlon,0,0,3,3,LATYPOV Eduard
+Biathlon,0,0,2,2,LOGINOV Alexander
+Biathlon,0,0,1,1,HINZ Vanessa
+Biathlon,0,0,1,1,KHALILI Said Karimulla
+Biathlon,0,0,1,1,PREUSS Franziska
+Biathlon,0,0,1,1,TSVETKOV Maxim
+Biathlon,0,0,1,1,VOIGT Vanessa
+Biathlon,0,0,1,1,WIERER Dorothea
+Bobsleigh,2,0,0,2,FRIEDRICH Francesco
+Bobsleigh,2,0,0,2,MARGIS Thorsten
+Bobsleigh,1,0,0,1,BAUER Candy
+Bobsleigh,1,0,0,1,HUMPHRIES Kaillie
+Bobsleigh,1,0,0,1,LEVI Deborah
+Bobsleigh,1,0,0,1,NOLTE Laura
+Bobsleigh,1,0,0,1,SCHUELLER Alexander
+Bobsleigh,0,2,0,2,BAUER Florian
+Bobsleigh,0,2,0,2,LOCHNER Johannes
+Bobsleigh,0,1,1,2,MEYERS TAYLOR Elana
+Bobsleigh,0,1,0,1,BURGHARDT Alexandra
+Bobsleigh,0,1,0,1,JAMANKA Mariama
+Bobsleigh,0,1,0,1,RASP Christian
+Bobsleigh,0,1,0,1,WEBER Christopher
+Bobsleigh,0,0,1,1,COAKWELL Benjamin
+Bobsleigh,0,0,1,1,HAFER Christoph
+Bobsleigh,0,0,1,1,HOFFMAN Sylvia
+Bobsleigh,0,0,1,1,KRIPPS Justin
+Bobsleigh,0,0,1,1,SOMMER Matthias
+Bobsleigh,0,0,1,1,SOMMER Ryan
+Bobsleigh,0,0,1,1,STONES Cam
+Bobsleigh,0,0,1,1,de BRUIN Christine
+Cross-Country Skiing,3,1,1,5,BOLSHUNOV Alexander
+Cross-Country Skiing,3,0,0,3,JOHAUG Therese
+Cross-Country Skiing,2,1,1,4,KLAEBO Johannes Hoesflot
+Cross-Country Skiing,1,1,1,3,NEPRYAEVA Natalia
+Cross-Country Skiing,1,1,1,3,NISKANEN Iivo
+Cross-Country Skiing,1,1,1,3,SUNDLING Jonna
+Cross-Country Skiing,1,1,0,2,CARL Victoria
+Cross-Country Skiing,1,1,0,2,HENNIG Katharina
+Cross-Country Skiing,1,1,0,2,SPITSOV Denis
+Cross-Country Skiing,1,0,1,2,STUPAK Yulia
+Cross-Country Skiing,1,0,0,1,CHERVOTKIN Alexey
+Cross-Country Skiing,1,0,0,1,SORINA Tatiana
+Cross-Country Skiing,1,0,0,1,STEPANOVA Veronika
+Cross-Country Skiing,1,0,0,1,USTIUGOV Sergey
+Cross-Country Skiing,1,0,0,1,VALNES Erik
+Cross-Country Skiing,0,2,1,3,DAHLQVIST Maja
+Cross-Country Skiing,0,1,1,2,DIGGINS Jessie
+Cross-Country Skiing,0,1,1,2,NISKANEN Kerttu
+Cross-Country Skiing,0,1,0,1,GOLBERG Paal
+Cross-Country Skiing,0,1,0,1,HOLUND Hans Christer
+Cross-Country Skiing,0,1,0,1,IVERSEN Emil
+Cross-Country Skiing,0,1,0,1,KREHL Sofie
+Cross-Country Skiing,0,1,0,1,MAKI Joni
+Cross-Country Skiing,0,1,0,1,PELLEGRINO Federico
+Cross-Country Skiing,0,1,0,1,SAUERBREY Katherine
+Cross-Country Skiing,0,1,0,1,YAKIMUSHKIN Ivan
+Cross-Country Skiing,0,0,2,2,TERENTEV Alexander
+Cross-Country Skiing,0,0,1,1,ANDERSSON Ebba
+Cross-Country Skiing,0,0,1,1,JOUVE Richard
+Cross-Country Skiing,0,0,1,1,KARLSSON Frida
+Cross-Country Skiing,0,0,1,1,KRUEGER Simen Hegstad
+Cross-Country Skiing,0,0,1,1,LAPALUS Hugo
+Cross-Country Skiing,0,0,1,1,MANIFICAT Maurice
+Cross-Country Skiing,0,0,1,1,PARISSE Clement
+Cross-Country Skiing,0,0,1,1,PARMAKOSKI Krista
+Cross-Country Skiing,0,0,1,1,STADLOBER Teresa
+Curling,1,0,1,2,ERIKSSON Oskar
+Curling,1,0,0,1,CONSTANTINI Stefania
+Curling,1,0,0,1,DODDS Jennifer
+Curling,1,0,0,1,DUFF Hailey
+Curling,1,0,0,1,EDIN Niklas
+Curling,1,0,0,1,MAGNUSSON Daniel
+Curling,1,0,0,1,MOSANER Amos
+Curling,1,0,0,1,MUIRHEAD Eve
+Curling,1,0,0,1,SMITH Mili
+Curling,1,0,0,1,SUNDGREN Christoffer
+Curling,1,0,0,1,WRANAA Rasmus
+Curling,1,0,0,1,WRIGHT Vicky
+Curling,0,1,0,1,FUJISAWA Satsuki
+Curling,0,1,0,1,HARDIE Grant
+Curling,0,1,0,1,ISHIZAKI Kotomi
+Curling,0,1,0,1,LAMMIE Bobby
+Curling,0,1,0,1,MOUAT Bruce
+Curling,0,1,0,1,McMILLAN Hammy
+Curling,0,1,0,1,NEDREGOTTEN Magnus
+Curling,0,1,0,1,SKASLIEN Kristin
+Curling,0,1,0,1,SUZUKI Yumi
+Curling,0,1,0,1,WHYTE Ross
+Curling,0,1,0,1,YOSHIDA Chinami
+Curling,0,1,0,1,YOSHIDA Yurika
+Curling,0,0,1,1,DE VAL Almida
+Curling,0,0,1,1,GALLANT Brett
+Curling,0,0,1,1,GUSHUE Brad
+Curling,0,0,1,1,HASSELBORG Anna
+Curling,0,0,1,1,HELDIN Johanna
+Curling,0,0,1,1,KENNEDY Marc
+Curling,0,0,1,1,KNOCHENHAUER Agnes
+Curling,0,0,1,1,MABERGS Sofia
+Curling,0,0,1,1,McMANUS Sara
+Curling,0,0,1,1,NICHOLS Mark
+Curling,0,0,1,1,WALKER Geoff
+Figure Skating,1,1,0,2,CHEN Nathan
+Figure Skating,1,1,0,2,KATSALAPOV Nikita
+Figure Skating,1,1,0,2,SINITSINA Victoria
+Figure Skating,1,0,1,2,GALLIAMOV Aleksandr
+Figure Skating,1,0,1,2,MISHINA Anastasia
+Figure Skating,1,0,0,1,CIZERON Guillaume
+Figure Skating,1,0,0,1,HAN Cong
+Figure Skating,1,0,0,1,KONDRATIUK Mark
+Figure Skating,1,0,0,1,PAPADAKIS Gabriella
+Figure Skating,1,0,0,1,SHCHERBAKOVA Anna
+Figure Skating,1,0,0,1,SUI Wenjing
+Figure Skating,1,0,0,1,VALIEVA Kamila
+Figure Skating,0,1,1,2,DONOHUE Zachary
+Figure Skating,0,1,1,2,HUBBELL Madison
+Figure Skating,0,1,1,2,KAGIYAMA Yuma
+Figure Skating,0,1,0,1,BATES Evan
+Figure Skating,0,1,0,1,CHEN Karen
+Figure Skating,0,1,0,1,CHOCK Madison
+Figure Skating,0,1,0,1,FRAZIER Brandon
+Figure Skating,0,1,0,1,KNIERIM Alexa
+Figure Skating,0,1,0,1,MOROZOV Vladimir
+Figure Skating,0,1,0,1,TARASOVA Evgenia
+Figure Skating,0,1,0,1,TRUSOVA Alexandra
+Figure Skating,0,1,0,1,ZHOU Vincent
+Figure Skating,0,0,2,2,SAKAMOTO Kaori
+Figure Skating,0,0,2,2,UNO Shoma
+Figure Skating,0,0,1,1,HIGUCHI Wakaba
+Figure Skating,0,0,1,1,KIHARA Ryuichi
+Figure Skating,0,0,1,1,KOLETO Tim
+Figure Skating,0,0,1,1,KOMATSUBARA Misato
+Figure Skating,0,0,1,1,MIURA Riku
+Freestyle Skiing,2,1,0,3,GU Ailing Eileen
+Freestyle Skiing,1,1,0,2,QI Guangpu
+Freestyle Skiing,1,1,0,2,XU Mengtao
+Freestyle Skiing,1,0,1,2,GREMAUD Mathilde
+Freestyle Skiing,1,0,0,1,ANTHONY Jakara
+Freestyle Skiing,1,0,0,1,CALDWELL Ashley
+Freestyle Skiing,1,0,0,1,HALL Alexander
+Freestyle Skiing,1,0,0,1,LILLIS Christopher
+Freestyle Skiing,1,0,0,1,NAESLUND Sandra
+Freestyle Skiing,1,0,0,1,PORTEOUS Nico
+Freestyle Skiing,1,0,0,1,REGEZ Ryan
+Freestyle Skiing,1,0,0,1,RUUD Birk
+Freestyle Skiing,1,0,0,1,SCHOENEFELD Justin
+Freestyle Skiing,1,0,0,1,WALLBERG Walter
+Freestyle Skiing,0,1,0,1,ABRAMENKO Oleksandr
+Freestyle Skiing,0,1,0,1,FIVA Alex
+Freestyle Skiing,0,1,0,1,GOEPPER Nicholas
+Freestyle Skiing,0,1,0,1,HUSKOVA Hanna
+Freestyle Skiing,0,1,0,1,JIA Zongyang
+Freestyle Skiing,0,1,0,1,KAUF Jaelin
+Freestyle Skiing,0,1,0,1,KINGSBURY Mikael
+Freestyle Skiing,0,1,0,1,LEDEUX Tess
+Freestyle Skiing,0,1,0,1,SHARPE Cassie
+Freestyle Skiing,0,1,0,1,STEVENSON Colby
+Freestyle Skiing,0,1,0,1,THOMPSON Marielle
+Freestyle Skiing,0,1,0,1,WISE David
+Freestyle Skiing,0,0,1,1,BUROV Ilia
+Freestyle Skiing,0,0,1,1,FERREIRA Alex
+Freestyle Skiing,0,0,1,1,FONTAINE Miha
+Freestyle Skiing,0,0,1,1,HARLAUT Henrik
+Freestyle Skiing,0,0,1,1,HORISHIMA Ikuma
+Freestyle Skiing,0,0,1,1,IRVING Lewis
+Freestyle Skiing,0,0,1,1,KARKER Rachael
+Freestyle Skiing,0,0,1,1,MAIER Daniela
+Freestyle Skiing,0,0,1,1,NICK Megan
+Freestyle Skiing,0,0,1,1,RIDZIK Sergey
+Freestyle Skiing,0,0,1,1,SILDARU Kelly
+Freestyle Skiing,0,0,1,1,SMIRNOVA Anastasiia
+Freestyle Skiing,0,0,1,1,THENAULT Marion
+Freestyle Skiing,0,0,1,1,TJADER Jesper
+Ice Hockey,1,0,0,1,AALTONEN Miro
+Ice Hockey,1,0,0,1,AMBROSE Erin
+Ice Hockey,1,0,0,1,ANTTILA Marko
+Ice Hockey,1,0,0,1,BELL Ashton
+Ice Hockey,1,0,0,1,BJORNINEN Hannes
+Ice Hockey,1,0,0,1,CAMPBELL Kristen
+Ice Hockey,1,0,0,1,CLARK Emily
+Ice Hockey,1,0,0,1,DAOUST Melodie
+Ice Hockey,1,0,0,1,DESBIENS Ann-Renee
+Ice Hockey,1,0,0,1,FAST Renata
+Ice Hockey,1,0,0,1,FILLIER Sarah
+Ice Hockey,1,0,0,1,FILPPULA Valtteri
+Ice Hockey,1,0,0,1,FRIMAN Niklas
+Ice Hockey,1,0,0,1,GRANLUND Markus
+Ice Hockey,1,0,0,1,HARTIKAINEN Teemu
+Ice Hockey,1,0,0,1,HIETANEN Juuso
+Ice Hockey,1,0,0,1,JENNER Brianne
+Ice Hockey,1,0,0,1,JOHNSTON Rebecca
+Ice Hockey,1,0,0,1,KEMILAINEN Valtteri
+Ice Hockey,1,0,0,1,KOMAROV Leo
+Ice Hockey,1,0,0,1,LAROCQUE Jocelyne
+Ice Hockey,1,0,0,1,LEHTONEN Mikko
+Ice Hockey,1,0,0,1,LINDBOHM Petteri
+Ice Hockey,1,0,0,1,MAENALANEN Saku
+Ice Hockey,1,0,0,1,MALTAIS Emma
+Ice Hockey,1,0,0,1,MANNINEN Sakari
+Ice Hockey,1,0,0,1,MASCHMEYER Emerance
+Ice Hockey,1,0,0,1,NATTINEN Joonas
+Ice Hockey,1,0,0,1,NURSE Sarah
+Ice Hockey,1,0,0,1,OHTAMAA Atte
+Ice Hockey,1,0,0,1,OJAMAKI Niko
+Ice Hockey,1,0,0,1,OLKINUORA Jussi
+Ice Hockey,1,0,0,1,PAKARINEN Iiro
+Ice Hockey,1,0,0,1,PESONEN Harri
+Ice Hockey,1,0,0,1,POKKA Ville
+Ice Hockey,1,0,0,1,POULIN Marie-Philip
+Ice Hockey,1,0,0,1,RAJALA Toni
+Ice Hockey,1,0,0,1,RATTRAY Jamie Lee
+Ice Hockey,1,0,0,1,SATERI Harri
+Ice Hockey,1,0,0,1,SAULNIER Jill
+Ice Hockey,1,0,0,1,SHELTON Ella
+Ice Hockey,1,0,0,1,SPOONER Natalie
+Ice Hockey,1,0,0,1,STACEY Laura
+Ice Hockey,1,0,0,1,THOMPSON Claire
+Ice Hockey,1,0,0,1,TUOHIMAA Frans
+Ice Hockey,1,0,0,1,TURNBULL Blayre
+Ice Hockey,1,0,0,1,VATANEN Sami
+Ice Hockey,1,0,0,1,ZANDEE-HART Micah
+Ice Hockey,0,1,0,1,ANDRONOV Sergei
+Ice Hockey,0,1,0,1,BARNES Cayla
+Ice Hockey,0,1,0,1,BILYALOV Timur
+Ice Hockey,0,1,0,1,BOZEK Megan
+Ice Hockey,0,1,0,1,BRANDT Hannah
+Ice Hockey,0,1,0,1,CAMERANESI Dani
+Ice Hockey,0,1,0,1,CARPENTER Alex
+Ice Hockey,0,1,0,1,CAVALLINI Alex
+Ice Hockey,0,1,0,1,CHIBISOV Andrei
+Ice Hockey,0,1,0,1,COMPHER Jesse
+Ice Hockey,0,1,0,1,COYNE SCHOFIELD Kendall
+Ice Hockey,0,1,0,1,DECKER Brianna
+Ice Hockey,0,1,0,1,DUNNE Jincy
+Ice Hockey,0,1,0,1,FEDOTOV Ivan
+Ice Hockey,0,1,0,1,GALIEV Stanislav
+Ice Hockey,0,1,0,1,GRIGORENKO Mikhail
+Ice Hockey,0,1,0,1,GRITSYUK Arseni
+Ice Hockey,0,1,0,1,GUSEV Nikita
+Ice Hockey,0,1,0,1,HARMON Savannah
+Ice Hockey,0,1,0,1,HARVEY Caroline
+Ice Hockey,0,1,0,1,HENSLEY Nicole
+Ice Hockey,0,1,0,1,KARNAUKHOV Pavel
+Ice Hockey,0,1,0,1,KAYUMOV Artur
+Ice Hockey,0,1,0,1,KELLER Megan
+Ice Hockey,0,1,0,1,KESSEL Amanda
+Ice Hockey,0,1,0,1,KNIGHT Hilary
+Ice Hockey,0,1,0,1,MINULIN Artyom
+Ice Hockey,0,1,0,1,MURPHY Abbey
+Ice Hockey,0,1,0,1,NESTEROV Nikita
+Ice Hockey,0,1,0,1,NIKISHIN Alexander
+Ice Hockey,0,1,0,1,PANNEK Kelly
+Ice Hockey,0,1,0,1,PLOTNIKOV Sergei
+Ice Hockey,0,1,0,1,ROONEY Maddie
+Ice Hockey,0,1,0,1,ROQUE Abby
+Ice Hockey,0,1,0,1,SAMONOV Alexander
+Ice Hockey,0,1,0,1,SCAMURRA Hayley
+Ice Hockey,0,1,0,1,SEMYONOV Kirill
+Ice Hockey,0,1,0,1,SHARIPZYANOV Damir
+Ice Hockey,0,1,0,1,SHIPACHYOV Vadim
+Ice Hockey,0,1,0,1,SLEPYSHEV Anton
+Ice Hockey,0,1,0,1,STECKLEIN Lee
+Ice Hockey,0,1,0,1,TELEGIN Sergei
+Ice Hockey,0,1,0,1,TKACHYOV Vladimir
+Ice Hockey,0,1,0,1,VOINOV Vyacheslav
+Ice Hockey,0,1,0,1,VORONKOV Dmitri
+Ice Hockey,0,1,0,1,YAKOVLEV Yegor
+Ice Hockey,0,1,0,1,YELESIN Alexander
+Ice Hockey,0,1,0,1,ZUMWINKLE Grace
+Ice Hockey,0,0,1,1,CAJKOVSKY Michal
+Ice Hockey,0,0,1,1,CEHLARIK Peter
+Ice Hockey,0,0,1,1,CERESNAK Peter
+Ice Hockey,0,0,1,1,DALOGA Marek
+Ice Hockey,0,0,1,1,DANO Marko
+Ice Hockey,0,0,1,1,GERNAT Martin
+Ice Hockey,0,0,1,1,HAKALA Sanni
+Ice Hockey,0,0,1,1,HIIRIKOSKI Jenni
+Ice Hockey,0,0,1,1,HOLESINSKY Adrian
+Ice Hockey,0,0,1,1,HOLOPAINEN Elisa
+Ice Hockey,0,0,1,1,HRIVIK Marek
+Ice Hockey,0,0,1,1,HUDACEK Libor
+Ice Hockey,0,0,1,1,JURCO Tomas
+Ice Hockey,0,0,1,1,KARJALAINEN Sini
+Ice Hockey,0,0,1,1,KARVINEN Michelle
+Ice Hockey,0,0,1,1,KEISALA Anni
+Ice Hockey,0,0,1,1,KELEMEN Milos
+Ice Hockey,0,0,1,1,KNAZKO Samuel
+Ice Hockey,0,0,1,1,KONRAD Branislav
+Ice Hockey,0,0,1,1,KRISTOF Michal
+Ice Hockey,0,0,1,1,LAITINEN Nelli
+Ice Hockey,0,0,1,1,LIIKALA Julia
+Ice Hockey,0,0,1,1,MAKINEN Eveliina
+Ice Hockey,0,0,1,1,MARINCIN Martin
+Ice Hockey,0,0,1,1,NEMEC Simon
+Ice Hockey,0,0,1,1,NIEMINEN Petra
+Ice Hockey,0,0,1,1,NISKANEN Tanja
+Ice Hockey,0,0,1,1,NYLUND Jenniina
+Ice Hockey,0,0,1,1,POSPISIL Kristian
+Ice Hockey,0,0,1,1,RAISANEN Meeri
+Ice Hockey,0,0,1,1,RANTALA Sanni
+Ice Hockey,0,0,1,1,REGENDA Pavol
+Ice Hockey,0,0,1,1,ROMAN Milos
+Ice Hockey,0,0,1,1,ROSANDIC Mislav
+Ice Hockey,0,0,1,1,RYBAR Patrik
+Ice Hockey,0,0,1,1,SAVOLAINEN Ronja
+Ice Hockey,0,0,1,1,SLAFKOVSKY Juraj
+Ice Hockey,0,0,1,1,SUNDELIN Sofianna
+Ice Hockey,0,0,1,1,TAKAC Samuel
+Ice Hockey,0,0,1,1,TAPANI Susanna
+Ice Hockey,0,0,1,1,TOMEK Matej
+Ice Hockey,0,0,1,1,TULUS Noora
+Ice Hockey,0,0,1,1,TUOMINEN Minnamari
+Ice Hockey,0,0,1,1,VAINIKKA Viivi
+Ice Hockey,0,0,1,1,VANHANEN Sanni
+Ice Hockey,0,0,1,1,VESA Emilia
+Ice Hockey,0,0,1,1,VIITASUO Ella
+Ice Hockey,0,0,1,1,ZUZIN Peter
+Luge,2,0,0,2,ARLT Tobias
+Luge,2,0,0,2,GEISENBERGER Natalie
+Luge,2,0,0,2,LUDWIG Johannes
+Luge,2,0,0,2,WENDL Tobias
+Luge,0,2,0,2,KINDL Wolfgang
+Luge,0,1,1,2,KOLLER Lorenz
+Luge,0,1,1,2,STEU Thomas
+Luge,0,1,0,1,BENECKEN Sascha
+Luge,0,1,0,1,BERREITER Anna
+Luge,0,1,0,1,EGGERT Toni
+Luge,0,1,0,1,EGLE Madeleine
+Luge,0,0,1,1,APARJODS Kristers
+Luge,0,0,1,1,BOTS Martins
+Luge,0,0,1,1,FISCHNALLER Dominik
+Luge,0,0,1,1,IVANOVA Tatyana
+Luge,0,0,1,1,PLUME Roberts
+Luge,0,0,1,1,TIRUMA Eliza
+Nordic Combined,2,1,0,3,GRAABAK Joergen
+Nordic Combined,1,1,0,2,GEIGER Vinzenz
+Nordic Combined,1,1,0,2,OFTEBRO Jens Luraas
+Nordic Combined,1,0,0,1,ANDERSEN Espen
+Nordic Combined,1,0,0,1,BJOERNSTAD Espen
+Nordic Combined,0,1,0,1,FAISST Manuel
+Nordic Combined,0,1,0,1,FRENZEL Eric
+Nordic Combined,0,1,0,1,SCHMID Julian
+Nordic Combined,0,0,2,2,WATABE Akito
+Nordic Combined,0,0,1,1,GREIDERER Lukas
+Nordic Combined,0,0,1,1,NAGAI Hideaki
+Nordic Combined,0,0,1,1,WATABE Yoshito
+Nordic Combined,0,0,1,1,YAMAMOTO Ryota
+Short Track Speed Skating,2,1,1,4,SCHULTING Suzanne
+Short Track Speed Skating,2,0,0,2,REN Ziwei
+Short Track Speed Skating,1,2,0,3,CHOI Minjeong
+Short Track Speed Skating,1,2,0,3,FONTANA Arianna
+Short Track Speed Skating,1,1,1,3,DUBOIS Steven
+Short Track Speed Skating,1,1,0,2,HWANG Daeheon
+Short Track Speed Skating,1,0,2,3,LIU Shaoang
+Short Track Speed Skating,1,0,1,2,FAN Kexin
+Short Track Speed Skating,1,0,1,2,QU Chunyu
+Short Track Speed Skating,1,0,1,2,ZHANG Yuting
+Short Track Speed Skating,1,0,0,1,DION Pascal
+Short Track Speed Skating,1,0,0,1,HAMELIN Charles
+Short Track Speed Skating,1,0,0,1,LAOUN Maxime
+Short Track Speed Skating,1,0,0,1,PIERRE-GILLES Jordan
+Short Track Speed Skating,1,0,0,1,POUTSMA Selma
+Short Track Speed Skating,1,0,0,1,VELZEBOER Xandra
+Short Track Speed Skating,1,0,0,1,WU Dajing
+Short Track Speed Skating,1,0,0,1,van KERKHOF Yara
+Short Track Speed Skating,0,1,1,2,CASSINELLI Andrea
+Short Track Speed Skating,0,1,1,2,CONFORTOLA Yuri
+Short Track Speed Skating,0,1,1,2,SIGHEL Pietro
+Short Track Speed Skating,0,1,0,1,IVLIEV Konstantin
+Short Track Speed Skating,0,1,0,1,KIM A Lang
+Short Track Speed Skating,0,1,0,1,KIM Dongwook
+Short Track Speed Skating,0,1,0,1,KWAK Yoongy
+Short Track Speed Skating,0,1,0,1,LEE Juneseo
+Short Track Speed Skating,0,1,0,1,LEE Yubin
+Short Track Speed Skating,0,1,0,1,LI Wenlong
+Short Track Speed Skating,0,1,0,1,PARK Janghyuk
+Short Track Speed Skating,0,1,0,1,SEO Whimin
+Short Track Speed Skating,0,1,0,1,VALCEPINA Arianna
+Short Track Speed Skating,0,1,0,1,VALCEPINA Martina
+Short Track Speed Skating,0,0,1,1,BOUTIN Kim
+Short Track Speed Skating,0,0,1,1,DESMET Hanne
+Short Track Speed Skating,0,0,1,1,DOTTI Tommaso
+Short Track Speed Skating,0,0,1,1,ELISTRATOV Semen
+Short Track Speed Skating,0,0,1,1,HAN Yutong
+Short Track Speed Skating,0,0,1,1,JASZAPATI Petra
+Short Track Speed Skating,0,0,1,1,KONYA Zsofia
+Short Track Speed Skating,0,0,1,1,KRUEGER John-Henry
+Short Track Speed Skating,0,0,1,1,LIU Shaolin Sandor
+Short Track Speed Skating,0,0,1,1,ZHANG Chutong
+Skeleton,1,0,0,1,GROTHEER Christopher
+Skeleton,1,0,0,1,NEISE Hannah
+Skeleton,0,1,0,1,JUNGK Axel
+Skeleton,0,1,0,1,NARRACOTT Jaclyn
+Skeleton,0,0,1,1,BOS Kimberley
+Skeleton,0,0,1,1,YAN Wengang
+Ski Jumping,2,0,0,2,BOGATAJ Ursa
+Ski Jumping,1,1,0,2,FETTNER Manuel
+Ski Jumping,1,1,0,2,KOBAYASHI Ryoyu
+Ski Jumping,1,1,0,2,PREVC Peter
+Ski Jumping,1,1,0,2,ZAJC Timi
+Ski Jumping,1,0,1,2,KRIZNAR Nika
+Ski Jumping,1,0,0,1,HOERL Jan
+Ski Jumping,1,0,0,1,HUBER Daniel
+Ski Jumping,1,0,0,1,KRAFT Stefan
+Ski Jumping,1,0,0,1,LINDVIK Marius
+Ski Jumping,0,1,0,1,ALTHAUS Katharina
+Ski Jumping,0,1,0,1,AVVAKUMOVA Irina
+Ski Jumping,0,1,0,1,KLIMOV Evgeniy
+Ski Jumping,0,1,0,1,KOS Lovro
+Ski Jumping,0,1,0,1,MAKHINIA Irma
+Ski Jumping,0,1,0,1,PREVC Cene
+Ski Jumping,0,1,0,1,SADREEV Danil
+Ski Jumping,0,0,2,2,GEIGER Karl
+Ski Jumping,0,0,1,1,BOYD-CLOWES Mackenzie
+Ski Jumping,0,0,1,1,EISENBICHLER Markus
+Ski Jumping,0,0,1,1,KUBACKI Dawid
+Ski Jumping,0,0,1,1,LEYHE Stephan
+Ski Jumping,0,0,1,1,LOUTITT Alexandria
+Ski Jumping,0,0,1,1,SCHMID Constantin
+Ski Jumping,0,0,1,1,SOUKUP Matthew
+Ski Jumping,0,0,1,1,STRATE Abigail
+Snowboard,2,0,0,2,JACOBELLIS Lindsey
+Snowboard,1,1,0,2,SADOWSKI SYNNOTT Zoi
+Snowboard,1,1,0,2,SU Yiming
+Snowboard,1,0,1,2,PARROT Max
+Snowboard,1,0,0,1,BAUMGARTNER Nick
+Snowboard,1,0,0,1,GASSER Anna
+Snowboard,1,0,0,1,HAEMMERLE Alessandro
+Snowboard,1,0,0,1,HIRANO Ayumu
+Snowboard,1,0,0,1,KARL Benjamin
+Snowboard,1,0,0,1,KIM Chloe
+Snowboard,1,0,0,1,LEDECKA Ester
+Snowboard,0,1,1,2,GRONDIN Eliot
+Snowboard,0,1,1,2,VISINTIN Omar
+Snowboard,0,1,0,1,CASTELLET Queralt
+Snowboard,0,1,0,1,JAMES Scotty
+Snowboard,0,1,0,1,MARINO Julia
+Snowboard,0,1,0,1,MASTNAK Tim
+Snowboard,0,1,0,1,MOIOLI Michela
+Snowboard,0,1,0,1,ROISLAND Mons
+Snowboard,0,1,0,1,TRESPEUCH Chloe
+Snowboard,0,1,0,1,ULBING Daniela
+Snowboard,0,0,2,2,ODINE Meryeta
+Snowboard,0,0,1,1,COADY Tess
+Snowboard,0,0,1,1,KOTNIK Gloria
+Snowboard,0,0,1,1,MURASE Kokomo
+Snowboard,0,0,1,1,McMORRIS Mark
+Snowboard,0,0,1,1,SCHERRER Jan
+Snowboard,0,0,1,1,TOMITA Sena
+Snowboard,0,0,1,1,WILD Victor
+Speed Skating,3,0,1,4,SCHOUTEN Irene
+Speed Skating,2,0,0,2,van der POEL Nils
+Speed Skating,1,3,0,4,TAKAGI Miho
+Speed Skating,1,1,1,3,WEIDEMANN Isabelle
+Speed Skating,1,1,0,2,BLONDIN Ivanie
+Speed Skating,1,1,0,2,KROL Thomas
+Speed Skating,1,0,1,2,ENGEBRAATEN Hallgeir
+Speed Skating,1,0,1,2,WUST Ireen
+Speed Skating,1,0,0,1,GAO Tingyu
+Speed Skating,1,0,0,1,JACKSON Erin
+Speed Skating,1,0,0,1,KONGSHAUG Peder
+Speed Skating,1,0,0,1,MALTAIS Valerie
+Speed Skating,1,0,0,1,NUIS Kjeld
+Speed Skating,1,0,0,1,PEDERSEN Sverre Lunde
+Speed Skating,1,0,0,1,SWINGS Bart
+Speed Skating,0,2,0,2,ROEST Patrick
+Speed Skating,0,1,1,2,LOLLOBRIGIDA Francesca
+Speed Skating,0,1,0,1,ALDOSHKIN Daniil
+Speed Skating,0,1,0,1,CHA Min Kyu
+Speed Skating,0,1,0,1,CHUNG Jae Won
+Speed Skating,0,1,0,1,DUBREUIL Laurent
+Speed Skating,0,1,0,1,LEERDAM Jutta
+Speed Skating,0,1,0,1,SATO Ayano
+Speed Skating,0,1,0,1,TAKAGI Nana
+Speed Skating,0,1,0,1,TROFIMOV Sergei
+Speed Skating,0,1,0,1,ZAKHAROV Ruslan
+Speed Skating,0,0,2,2,de JONG Antoinette
+Speed Skating,0,0,1,1,BOWE Brittany
+Speed Skating,0,0,1,1,CEPURAN Ethan
+Speed Skating,0,0,1,1,DAWSON Casey
+Speed Skating,0,0,1,1,GHIOTTO Davide
+Speed Skating,0,0,1,1,GOLIKOVA Angelina
+Speed Skating,0,0,1,1,GROENEWOUD Marijke
+Speed Skating,0,0,1,1,KIM Minseok
+Speed Skating,0,0,1,1,LEE Seung Hoon
+Speed Skating,0,0,1,1,LEHMAN Emery
+Speed Skating,0,0,1,1,LORENTZEN Haavard Holmefjord
+Speed Skating,0,0,1,1,MANTIA Joey
+Speed Skating,0,0,1,1,MORISHIGE Wataru
+Speed Skating,0,0,1,1,SABLIKOVA Martina
