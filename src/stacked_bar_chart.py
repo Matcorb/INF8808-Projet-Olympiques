@@ -39,6 +39,14 @@ def get_top_plot(df, type, graph_type):
     title = f"Top {graph_type.capitalize()} with the most {type.capitalize()} Medals by Discipline"
     hover_column = "athlete_name" if graph_type == "athlete" else "country"
 
+    df[type] = df[type].astype(int)
+
+    color_axis_title = (
+        f"Number of medals"
+        if type == "total"
+        else f"Number of {type.capitalize()} medals"
+    )
+
     if type == "total":
         hover_template = (
             "<b>%{customdata[0]}</b><br>"
@@ -65,9 +73,6 @@ def get_top_plot(df, type, graph_type):
         hover_data={hover_column: True},
         color=type,
         color_continuous_scale=px.colors.sequential.Pinkyl,
-        labels={
-            type: f"Number of {type.capitalize()} Medals per {graph_type.capitalize()}",
-        },
     )
     fig.update_traces(
         hovertemplate=hover_template,
@@ -84,9 +89,16 @@ def get_top_plot(df, type, graph_type):
         title_text="Discipline",
     )
     fig.update_layout(
-        showlegend=False,
-        coloraxis={
-            "colorbar": {"dtick": 1},
-        },
+        legend_traceorder="reversed",
     )
+    fig.update_coloraxes(
+        colorbar_title=color_axis_title,
+        colorbar_tickmode="array",
+        colorbar=dict(
+            dtick=1,
+            borderwidth=2,
+            tickvals=list(range(1, max(df[type].unique()) + 1)),
+        ),
+    )
+    fig.layout.legend.traceorder = "reversed"
     return fig
