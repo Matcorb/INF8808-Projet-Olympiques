@@ -8,6 +8,8 @@ import pandas as pd
 
 import preprocess
 import stacked_bar_chart
+import violin_charts
+import line_bar_charts
 import template
 
 app = Dash(__name__, title="Olympic-app")
@@ -28,6 +30,19 @@ top_medal_athlete_df = pd.read_csv("./assets/data/top_medals_athlete.csv")
 top_medal_country_df = pd.read_csv("./assets/data/top_medals_country.csv")
 order_types_top = ["total", "gold", "silver", "bronze"]
 order_types_graph = ["athlete", "country"]
+
+# Preprocess line bar chart data
+athletes = pd.read_csv('./assets/data/athletes.csv')
+medals_total = pd.read_csv("./assets/data/medals_total.csv")
+line_bar_data = preprocess.line_bar_data(athletes, medals_total)
+
+# Import and preprocess athlete age data
+athletes = pd.read_csv('./assets/data/athletes.csv')
+athletes = preprocess.athlete_age(athletes)
+
+# Import and preprocess medal athlete age data
+medals = pd.read_csv('./assets/data/medals.csv')
+medals = preprocess.medal_athlete_age(medals, athletes)
 
 template.set_default_theme()
 
@@ -112,6 +127,55 @@ app.layout = html.Div(
                     ],
                     style={"display": "flex", "flexDirection": "column"},
                 ),
+                html.H1(children="Athlete age and gender distribution"),
+                html.Div(
+                    [
+                        html.Div(
+                            dcc.Dropdown(
+                                id='violin_graphs_filter',
+                                options=['Discipline', 'Country'],
+                                value='Discipline',
+                                clearable=False,
+                                style={'width': '200px', 'marginBottom': '10px'}
+                            )
+                        ),
+                        html.Div(
+                            dcc.Graph(
+                                id='violin_graphs'
+                            )
+                        )
+                    ]
+                ),
+                html.H1(children="Relative country performance"),
+                html.Div(
+                    [
+                        html.Div(
+                            [
+                                dcc.Dropdown(
+                                    id='line_bar_graph_filter',
+                                    options=['All', 'Won medals'],
+                                    value='All',
+                                    clearable=False,
+                                    style={'width': '200px', 'marginBottom': '10px'}
+                                ),
+                                dcc.RadioItems(
+                                    id='relative_medal_filter',
+                                    options=['Medals', 'Medals per 100'],
+                                    value='Medals',
+                                    labelStyle={
+                                        'display': 'inline-block',
+                                        'marginRight': '20px',
+                                    },
+                                )
+                            ]
+                        ),
+                        html.Div(
+                            dcc.Graph(
+                                id='line_bar_graph'
+                            )
+                        )
+                    ]
+                )
             ],
             style={"display": "flex", "flexDirection": "column"},
         ),
@@ -149,6 +213,24 @@ def update_top_figure(selected_top_order_type, graph_type):
     return stacked_bar_chart.get_top_plot(
         filtered_df, selected_top_order_type, graph_type
     )
+
+# Viz 1
+@app.callback(
+    Output('violin_graphs', 'figure'),
+    [Input('violin_graphs_filter', 'value')]
+)
+def update_figure(violin_graphs_filter):
+    fig = violin_charts.get_plot(athletes, medals)
+    return fig
+
+# Viz 4
+@app.callback(
+    Output('line_bar_graph', 'figure'),
+    [Input('line_bar_graph_filter', 'value')]
+)
+def update_figure(violin_graphs_filter):
+    fig = line_bar_charts.get_plot(line_bar_data)
+    return fig
 
 
 if __name__ == "__main__":
