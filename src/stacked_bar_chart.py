@@ -65,6 +65,9 @@ def get_top_plot(df, type, graph_type):
         hover_data={hover_column: True},
         color=type,
         color_continuous_scale=px.colors.sequential.Pinkyl,
+        labels={
+            type: f"Number of {type.capitalize()} Medals per {graph_type.capitalize()}",
+        },
     )
     fig.update_traces(
         hovertemplate=hover_template,
@@ -74,14 +77,11 @@ def get_top_plot(df, type, graph_type):
         opacity=1,
     )
     fig.update_xaxes(
-        title_text=f"Number of {type.capitalize()} Medals",
+        title_text=f"{type.capitalize()} Medals Distribution by Discipline",
     )
     fig.update_yaxes(
         autorange="reversed",
         title_text="Discipline",
     )
-    fig.update_layout(
-        showlegend=False,
-        coloraxis_showscale=False,
-    )
+    fig.update_layout(showlegend=False)
     return fig
