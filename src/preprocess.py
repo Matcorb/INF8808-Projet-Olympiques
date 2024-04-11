@@ -60,6 +60,9 @@ def get_dates(dataframe):
 def get_top_medals(dataframe, medal_type, graph_type):
     other_column = "athlete_name" if graph_type == "athlete" else "country"
 
+    # Removing Ice Hockey since pollutes the data
+    dataframe = dataframe[dataframe["discipline"] != "Ice Hockey"]
+
     dataframe = dataframe.sort_values(
         by=["discipline", medal_type, other_column], ascending=[True, False, True]
     )
@@ -74,13 +77,12 @@ def get_top_medals(dataframe, medal_type, graph_type):
     )
     dataframe = (
         dataframe.groupby("discipline")
-        .apply(lambda x: x.sort_values(by=medal_type, ascending=False).head(5))
+        .apply(lambda x: x.sort_values(by=medal_type, ascending=False))
         .reset_index(drop=True)
     )
     dataframe["position"] = dataframe.groupby("discipline").cumcount() + 1
     dataframe["percent"] = dataframe[medal_type] / dataframe["total_medals"] * 100
     dataframe["position_label"] = dataframe["position"].apply(lambda x: f"Top {x}")
-    print(dataframe.to_string())
     return dataframe
 
 # Viz 1

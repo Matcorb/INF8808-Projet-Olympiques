@@ -36,8 +36,24 @@ def get_plot(df, type):
 
 
 def get_top_plot(df, type, graph_type):
-    title = f"Top 5 {graph_type.capitalize()} with the most {type.capitalize()} Medals by Discipline"
+    title = f"Top {graph_type.capitalize()} with the most {type.capitalize()} Medals by Discipline"
     hover_column = "athlete_name" if graph_type == "athlete" else "country"
+
+    if type == "total":
+        hover_template = (
+            "<b>%{customdata[0]}</b><br>"
+            f"{type.capitalize()} Medals: %{{x}}<br>"
+            f"Gold: %{{customdata[2]}}<br>"
+            f"Silver: %{{customdata[3]}}<br>"
+            f"Bronze: %{{customdata[4]}}<br>"
+            f"Represents %{{customdata[1]:.2f}}% of all medals in %{{y}}"
+        )
+    else:
+        hover_template = (
+            "<b>%{customdata[0]}</b><br>"
+            f"{type.capitalize()} Medals: %{{x}}<br>"
+            f"Represents %{{customdata[1]:.2f}}% of all medals in %{{y}}"
+        )
 
     fig = px.bar(
         df,
@@ -49,27 +65,23 @@ def get_top_plot(df, type, graph_type):
         hover_data={hover_column: True},
         color=type,
         color_continuous_scale=px.colors.sequential.Pinkyl,
+        labels={
+            type: f"Number of {type.capitalize()} Medals per {graph_type.capitalize()}",
+        },
     )
     fig.update_traces(
-        hovertemplate=(
-            "<b>%{customdata[0]}</b><br>"
-            f"{type.capitalize()} Medals: %{{x}}<br>"
-            f"This represents %{{customdata[1]:.2f}} % of the {type.capitalize()} medals in %{{y}}<extra></extra>"
-        ),
-        customdata=df[[hover_column, "percent"]],
+        hovertemplate=hover_template,
+        customdata=df[[hover_column, "percent", "gold", "silver", "bronze"]],
         marker_line_color="black",
         marker_line_width=1.5,
         opacity=1,
     )
     fig.update_xaxes(
-        title_text=f"Number of {type.capitalize()} Medals",
+        title_text=f"{type.capitalize()} Medals Distribution by Discipline",
     )
     fig.update_yaxes(
         autorange="reversed",
         title_text="Discipline",
     )
-    fig.update_layout(
-        showlegend=False,
-        coloraxis_showscale=False,
-    )
+    fig.update_layout(showlegend=False)
     return fig
