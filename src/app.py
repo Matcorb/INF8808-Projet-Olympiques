@@ -63,7 +63,6 @@ app.layout = html.Div(children=[
      Input('date-slider', 'value')]
 )
 def update_figure(selected_order_type, selected_date):
-    print(selected_date)
     filtered_df = preprocess.get_top5_medals_by_date(medals_totals_by_date_df, selected_date, selected_order_type)
     fig = stacked_bar_chart.get_plot(filtered_df, selected_order_type)
     return fig

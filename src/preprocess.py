@@ -1,22 +1,9 @@
 import pandas as pd
 from datetime import datetime
 
-def get_top5_medals(dataframe, type):
-    if type == "total medals":
-        sorted_df = dataframe.sort_values(by=["Total"], ascending=False).head(5)
-    elif type == "gold":
-        sorted_df = dataframe.sort_values(by=["Gold"], ascending=False).head(5)
-    elif type == "silver":
-        sorted_df = dataframe.sort_values(by=["Silver"], ascending=False).head(5)
-    elif type == "bronze":
-        sorted_df = dataframe.sort_values(by=["Bronze"], ascending=False).head(5)
-    return sorted_df
-
 def get_top5_medals_by_date(dataframe, day, type):
     date = datetime(year=2022, month=2, day=day)
-    print(date)
     filtered_df = dataframe[dataframe["Date"] == date]
-    print(filtered_df)
     if type == "total medals":
         sorted_df = filtered_df.sort_values(by=["Total"], ascending=False).head(5)
     elif type == "gold":
