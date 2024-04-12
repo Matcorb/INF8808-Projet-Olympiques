@@ -5,7 +5,6 @@ import plotly.express as px
 colors = px.colors.qualitative.Plotly # Plotly base colors
 
 def get_plot(athletes, medals):
-    
     # Define figure and layout
     fig = make_subplots(rows=2, cols=17, vertical_spacing=0.1, horizontal_spacing=0.005)
     layout = go.Layout(
@@ -173,4 +172,5 @@ def get_plot(athletes, medals):
             showarrow=False
         )
     ])
+    fig.update_layout(plot_bgcolor="#FFFFE0", paper_bgcolor="#FFFFE0", font=dict(family="Roboto Slab, serif"))
     return fig

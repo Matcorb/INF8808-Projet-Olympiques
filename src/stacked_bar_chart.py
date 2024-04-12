@@ -1,17 +1,16 @@
 import plotly.express as px
+from datetime import datetime
 
 from template import MEDAL_COLORS
 
 
-def get_plot(df, type):
-    title = f"Top 5 Countries by {type.capitalize() + ' Medals'}"
+def get_plot(df, type, day):
 
-    if type == "total medals":
+    if type in ["official", "total medals"]:
         fig = px.bar(
             df,
             y="Country",
             x=["Gold", "Silver", "Bronze"],
-            title=title,
             labels={"value": "Medals", "variable": "Medal Type"},
             color_discrete_map=MEDAL_COLORS,
             orientation="h",
@@ -24,13 +23,16 @@ def get_plot(df, type):
             df,
             y="Country",
             x=type.capitalize(),
-            title=title,
             color_discrete_sequence=[bar_color],
             orientation="h",
             category_orders={"Country": df["Country"].tolist()},
         )
     fig.update_layout(
-        legend_orientation="h", legend=dict(y=-0.2, xanchor="center", x=0.5)
+        legend_orientation="h",
+        legend=dict(y=-0.2, xanchor="center", x=0.5),
+        plot_bgcolor="#f9f0f0",
+        paper_bgcolor="#f9f0f0",
+        font=dict(family="Roboto Slab, serif"),
     )
     return fig
 
@@ -90,6 +92,9 @@ def get_top_plot(df, type, graph_type):
     )
     fig.update_layout(
         legend_traceorder="reversed",
+        plot_bgcolor="#84c1ff",
+        paper_bgcolor="#84c1ff",
+        font=dict(family="Roboto Slab, serif"),
     )
     fig.update_coloraxes(
         colorbar_title=color_axis_title,

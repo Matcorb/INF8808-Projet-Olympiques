@@ -1,0 +1,21 @@
+h1 {
+    color: #2A2B2E;
+    font-family: 'Roboto Slab', 'serif';
+    font-size: 70px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    color: #2A2B2E;
+    font-family: 'Roboto Slab', 'serif';
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 50px;
+}
+
+h3 {
+    font-family: 'Roboto Slab', 'serif';
+}

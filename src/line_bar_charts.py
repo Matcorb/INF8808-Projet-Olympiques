@@ -1,7 +1,6 @@
 import plotly.graph_objects as go
 
 def get_plot(line_bar_data):
-    
     bar_chart = go.Bar(
         x=line_bar_data.index,
         y=line_bar_data['count'],
@@ -25,4 +24,5 @@ def get_plot(line_bar_data):
         yaxis2=dict(side='right', range=[0, 50], title=dict(text='Nomber of medals'), overlaying='y')
     )
     fig = go.Figure(data=data, layout=layout)
+    fig.update_layout(plot_bgcolor="#C0D9AF", paper_bgcolor="#C0D9AF", font=dict(family="Roboto Slab, serif"))
     return fig
