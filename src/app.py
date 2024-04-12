@@ -37,12 +37,10 @@ medals_total = pd.read_csv("./assets/data/medals_total.csv")
 line_bar_data = preprocess.line_bar_data(athletes, medals_total)
 
 # Import and preprocess athlete age data
-athletes = pd.read_csv("./assets/data/athletes.csv")
 athletes = preprocess.athlete_age(athletes)
 
 # Import and preprocess medal athlete age data
-medals = pd.read_csv("./assets/data/medals.csv")
-medals = preprocess.medal_athlete_age(medals, athletes)
+medals = preprocess.medal_athlete_age(medals_df, athletes)
 
 template.set_default_theme()
 
@@ -222,13 +220,19 @@ app.layout = html.Div(
                                     [dcc.Graph(id="top-medals-graph")],
                                     style={"flex": "1"},
                                 ),
+                                html.Div(
+                                    id="hover-data-box",
+                                    style={
+                                        "backgroundColor": "#84c1ff",
+                                        "paddingBottom": "50px",
+                                    },
+                                ),
                             ],
                             style={"display": "flex", "flexDirection": "column"},
                         ),
                     ],
                     style={"backgroundColor": "#84c1ff", "paddingBottom": "50px"},
                 ),
-                html.Div(id="hover-data-box"),
                 html.Div(
                     [
                         html.H2(children="Athlete Age and Gender Distribution"),
@@ -430,11 +434,10 @@ def display_hover_data(
             html.P(info_text),
         ],
         style={
-            "border": "thin lightgrey solid",
             "padding": "10px",
             "margin-top": "5px",
-            "border-radius": "5px",
-            "background-color": "#f9f9f9",
+            "backgroundColor": "#84c1ff",
+            "paddingBottom": "50px",
         },
     )
 

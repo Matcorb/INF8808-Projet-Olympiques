@@ -38,15 +38,14 @@ def get_plot(df, type, day):
 
 
 def get_top_plot(df, type, graph_type):
-    title = f"Top {graph_type.capitalize()} with the most {type.capitalize()} Medals by Discipline"
     hover_column = "athlete_name" if graph_type == "athlete" else "country"
 
     df[type] = df[type].astype(int)
 
     color_axis_title = (
-        f"Number of medals"
+        f"<b>Number of medals</b>"
         if type == "total"
-        else f"Number of {type.capitalize()} medals"
+        else f"<b>Number of {type.capitalize()} medals</b>"
     )
 
     if type == "total":
@@ -69,7 +68,6 @@ def get_top_plot(df, type, graph_type):
         df,
         y="discipline",
         x=type,
-        title=title,
         orientation="h",
         category_orders={"Discipline": df["discipline"].unique()},
         hover_data={hover_column: True},
@@ -84,11 +82,12 @@ def get_top_plot(df, type, graph_type):
         opacity=1,
     )
     fig.update_xaxes(
-        title_text=f"{type.capitalize()} Medals Distribution by Discipline",
+        title_text=f"<b>{type.capitalize()} Medals Distribution by Discipline</b>",
     )
     fig.update_yaxes(
         autorange="reversed",
-        title_text="Discipline",
+        title_text="<b>Discipline</b>",
+        tickfont=dict(size=15),
     )
     fig.update_layout(
         legend_traceorder="reversed",
@@ -97,7 +96,7 @@ def get_top_plot(df, type, graph_type):
         font=dict(family="Roboto Slab, serif"),
     )
     fig.update_coloraxes(
-        colorbar_title=color_axis_title,
+        colorbar_title=f"{color_axis_title}<br>",
         colorbar_tickmode="array",
         colorbar=dict(
             dtick=1,
