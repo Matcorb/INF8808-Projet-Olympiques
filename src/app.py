@@ -414,47 +414,41 @@ def update_top_figure(selected_top_order_type, graph_type, sort_method):
     ],
     [State("hover-data-box", "children")],
 )
-def display_hover_data(
-    hover_data,
-    order_type,
-    graph_type,
-    current_data,
-):
+def display_hover_data(hover_data, order_type, graph_type, current_data):
     ctx = callback_context
 
-    header_text = "Hover over a bar to see detailed data"
-    gold_text = " "
-    silver_text = " "
-    bronze_text = " "
-    info_text = " "
-
-    if not ctx.triggered or ctx.triggered[0]["prop_id"] in (
+    if not ctx.triggered or not hover_data or ctx.triggered[0]["prop_id"] in (
         "order-type-top-dropdown.value",
         "graph-type-selection.value",
     ):
-        header_text = "Hover over a bar to see detailed data"
-    elif hover_data:
-        data = hover_data["points"][0]
-        country_or_athlete = data["customdata"][0]
-        discipline = data["y"]
-        percent = data["customdata"][1]
-        gold = data["customdata"][2]
-        silver = data["customdata"][3]
-        bronze = data["customdata"][4]
+        return html.Div(
+            [
+                html.H3("Hover over a bar to see detailed data"),
+            ],
+            style={
+                "padding": "10px",
+                "margin-top": "5px",
+                "backgroundColor": "#84c1ff",
+                "paddingBottom": "50px",
+            },
+        )
+    
+    data = hover_data["points"][0]
+    country_or_athlete = data["customdata"][0]
+    discipline = data["y"]
+    percent = data["customdata"][1]
+    medals = data["customdata"][2:5]  # gold, silver, bronze
+    medal_names = ["Gold", "Silver", "Bronze"]
+    medal_texts = [f"{name}: {count}" for name, count in zip(medal_names, medals)]
 
-        medal_type = "" if order_type == "total" else order_type
-        header_text = f"{country_or_athlete} - {discipline}"
-        gold_text = f"Gold: {gold}"
-        silver_text = f"Silver: {silver}"
-        bronze_text = f"Bronze: {bronze}"
-        info_text = f"This {graph_type} has won {percent:.2f}% of the {medal_type} medals in {discipline}"
+    medal_type = "" if order_type == "total" else order_type
+    header_text = f"{country_or_athlete} - {discipline}"
+    info_text = f"This {graph_type} has won {percent:.2f}% of the {medal_type} medals in {discipline}"
 
     return html.Div(
         [
             html.H3(header_text),
-            html.P(gold_text),
-            html.P(silver_text),
-            html.P(bronze_text),
+            *map(html.P, medal_texts),
             html.P(info_text),
         ],
         style={
@@ -464,6 +458,7 @@ def display_hover_data(
             "paddingBottom": "50px",
         },
     )
+
 
 
 # Viz 1
