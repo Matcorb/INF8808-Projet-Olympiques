@@ -198,6 +198,20 @@ app.layout = html.Div(
                                                 "backgroundColor": "lightgrey",
                                             },
                                         ),
+                                        dcc.Checklist(
+                                            id="sort-method-checkbox",
+                                            options=[
+                                                {
+                                                    "label": " Sort by Weighted Medal Values",
+                                                    "value": "weighted",
+                                                }
+                                            ],
+                                            value=[],
+                                            style={
+                                                "display": "none",
+                                                "fontSize": "16px",
+                                            },
+                                        ),
                                         dcc.RadioItems(
                                             id="graph-type-selection",
                                             options=[
@@ -351,6 +365,14 @@ app.layout = html.Div(
 
 
 @app.callback(
+    Output("sort-method-checkbox", component_property="style"),
+    [Input("order-type-top-dropdown", "value")],
+)
+def show_hide_top_checkbox(visibility_state):
+    return {"display": "block" if visibility_state == "total" else "none"}
+
+
+@app.callback(
     Output("medals-graph", "figure"),
     [Input("order-type-dropdown", "value"), Input("date-slider", "value")],
 )
@@ -367,13 +389,15 @@ def update_figure(selected_order_type, selected_date):
     [
         Input("order-type-top-dropdown", "value"),
         Input("graph-type-selection", "value"),
+        Input("sort-method-checkbox", "value"),
     ],
 )
-def update_top_figure(selected_top_order_type, graph_type):
+def update_top_figure(selected_top_order_type, graph_type, sort_method):
     filtered_df = preprocess.get_top_medals(
         top_medal_athlete_df if graph_type == "athlete" else top_medal_country_df,
         selected_top_order_type,
         graph_type,
+        sort_method,
     )
 
     return stacked_bar_chart.get_top_plot(
