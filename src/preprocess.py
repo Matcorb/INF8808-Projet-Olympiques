@@ -77,7 +77,7 @@ def get_top_medals(dataframe, medal_type, graph_type, sort_method):
     ]
     sort_ascending = [True, False, True]
 
-    if medal_type == "total" and sort_method == "weighted":
+    if medal_type == "total" and sort_method == ["weighted"]:
         dataframe["official"] = (
             dataframe["gold"] * 10000 + dataframe["silver"] * 100 + dataframe["bronze"]
         )
