@@ -17,30 +17,25 @@ app = Dash(__name__, title="Olympic-app")
 # Declare server for Heroku deployment. Needed for Procfile.
 server = app.server
 
-
-medals_total_df = pd.read_csv("./assets/data/medals_total.csv")
+# Raw dataframes
 medals_df = pd.read_csv("./assets/data/medals.csv")
-medals_by_date_df = preprocess.extract_countries_from_athletes(medals_df)
-medals_totals_by_date_df = preprocess.get_country_totals_per_date(medals_by_date_df)
-dates = preprocess.get_dates(medals_totals_by_date_df)
-
-order_types = ["official", "total medals", "gold", "silver", "bronze"]
-
 top_medal_athlete_df = pd.read_csv("./assets/data/top_medals_athlete.csv")
 top_medal_country_df = pd.read_csv("./assets/data/top_medals_country.csv")
-order_types_top = ["total", "gold", "silver", "bronze"]
-order_types_graph = ["athlete", "country"]
-
-# Preprocess line bar chart data
 athletes = pd.read_csv("./assets/data/athletes.csv")
 medals_total = pd.read_csv("./assets/data/medals_total.csv")
+
+# Processed dataframes
+medals_by_date_df = preprocess.extract_countries_from_athletes(medals_df)
+medals_totals_by_date_df = preprocess.get_country_totals_per_date(medals_by_date_df)
 line_bar_data = preprocess.line_bar_data(athletes, medals_total)
-
-# Import and preprocess athlete age data
 athletes = preprocess.athlete_age(athletes)
-
-# Import and preprocess medal athlete age data
 medals = preprocess.medal_athlete_age(medals_df, athletes)
+dates = preprocess.get_dates(medals_totals_by_date_df)
+
+# Dropdown options
+order_types = ["official", "total medals", "gold", "silver", "bronze"]
+order_types_top = ["total", "gold", "silver", "bronze"]
+order_types_graph = ["athlete", "country"]
 
 template.set_default_theme()
 
