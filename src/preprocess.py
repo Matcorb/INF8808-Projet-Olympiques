@@ -50,8 +50,12 @@ def get_country_totals_per_date(dataframe):
     merged_df["Bronze"] = merged_df.groupby("Country")["Bronze"].cumsum()
 
     merged_df["Total"] = merged_df["Gold"] + merged_df["Silver"] + merged_df["Bronze"]
-    merged_df["Official"] = merged_df["Gold"] * 10000 + merged_df["Silver"] * 100 + merged_df["Bronze"]
-    return merged_df[["Country", "Gold", "Silver", "Bronze", "Total", "Official", "Date"]]
+    merged_df["Official"] = (
+        merged_df["Gold"] * 10000 + merged_df["Silver"] * 100 + merged_df["Bronze"]
+    )
+    return merged_df[
+        ["Country", "Gold", "Silver", "Bronze", "Total", "Official", "Date"]
+    ]
 
 
 def get_dates(dataframe):
@@ -60,68 +64,93 @@ def get_dates(dataframe):
     )
 
 
-def get_top_medals(dataframe, medal_type, graph_type):
-    other_column = "athlete_name" if graph_type == "athlete" else "country"
-
-    # Removing Ice Hockey since pollutes the data
+def get_top_medals(dataframe, medal_type, graph_type, sort_method):
+    # Remove hockey since it pollutes the data
     dataframe = dataframe[dataframe["discipline"] != "Ice Hockey"]
 
-    dataframe = dataframe.sort_values(
-        by=["discipline", medal_type, other_column], ascending=[True, False, True]
-    )
+    dataframe = add_total_medals(dataframe, medal_type)
 
-    total_medals_per_discipline = dataframe.groupby("discipline")[medal_type].sum()
+    sort_keys = [
+        "discipline",
+        medal_type,
+        "athlete_name" if graph_type == "athlete" else "country",
+    ]
+    sort_ascending = [True, False, True]
 
-    dataframe = pd.merge(
-        dataframe,
-        total_medals_per_discipline.rename("total_medals"),
-        left_on="discipline",
-        right_index=True,
-    )
+    if medal_type == "total" and sort_method == ["weighted"]:
+        dataframe["official"] = (
+            dataframe["gold"] * 10000 + dataframe["silver"] * 100 + dataframe["bronze"]
+        )
+        sort_keys[1] = "official"
+
+    dataframe = dataframe.sort_values(by=sort_keys, ascending=sort_ascending)
+
     dataframe = (
         dataframe.groupby("discipline")
-        .apply(lambda x: x.sort_values(by=medal_type, ascending=False))
+        .apply(lambda x: x.sort_values(by=sort_keys[1], ascending=False))
         .reset_index(drop=True)
     )
     dataframe["position"] = dataframe.groupby("discipline").cumcount() + 1
     dataframe["percent"] = dataframe[medal_type] / dataframe["total_medals"] * 100
     dataframe["position_label"] = dataframe["position"].apply(lambda x: f"Top {x}")
+
     return dataframe
+
+
+def add_total_medals(dataframe, medal_type):
+    total_medals = (
+        dataframe.groupby("discipline")[medal_type].sum().rename("total_medals")
+    )
+    return dataframe.merge(total_medals, on="discipline", how="inner")
+
 
 # Viz 1
 def athlete_age(athletes):
-    athletes['birth_date'] = pd.to_datetime(athletes['birth_date'])
-    age_timedelta = datetime.now() - athletes['birth_date']
-    athletes['age'] = age_timedelta // pd.Timedelta(365.25, unit='D')
-    athletes = athletes.dropna(subset=['age']) # Remove athletes whose age is unknown (nan)
+    athletes["birth_date"] = pd.to_datetime(athletes["birth_date"])
+    age_timedelta = datetime.now() - athletes["birth_date"]
+    athletes["age"] = age_timedelta // pd.Timedelta(365.25, unit="D")
+    athletes = athletes.dropna(
+        subset=["age"]
+    )  # Remove athletes whose age is unknown (nan)
     return athletes
 
+
 def medal_athlete_age(medals, athletes):
-    medals['name'] = medals['athlete_name']
+    medals["name"] = medals["athlete_name"]
     medals = pd.merge(
-        medals[['name']],
-        athletes[['name', 'gender', 'discipline', 'age']],
-        on='name',
-        how='left'
+        medals[["name"]],
+        athletes[["name", "gender", "discipline", "age"]],
+        on="name",
+        how="left",
     )
     return medals
 
+
 # Viz 4
 def line_bar_data(athletes, medals_total):
-    
+
     # Preprocess athletes per country
-    athletes_per_country = pd.DataFrame(athletes['country'].value_counts())
-    
+    athletes_per_country = pd.DataFrame(athletes["country"].value_counts())
+
     # Preprocess medals per country
-    medals_total.index = medals_total['Country']
+    medals_total.index = medals_total["Country"]
     medals_total.drop(
-        columns=['Order', 'Country', 'Gold', 'Silver', 'Bronze', 'Order by Total', 'Country Code'],
-        inplace=True
+        columns=[
+            "Order",
+            "Country",
+            "Gold",
+            "Silver",
+            "Bronze",
+            "Order by Total",
+            "Country Code",
+        ],
+        inplace=True,
     )
-    
+
     # Create line-bar graph data
     line_bar_data = athletes_per_country.combine_first(medals_total).fillna(0)
-    line_bar_data = line_bar_data.sort_values(by='count', ascending=False)
-    line_bar_data['medals_per_100'] = round(100 * line_bar_data['Total'] / line_bar_data['count'], 1)
-    return line_bar_data    
-    
+    line_bar_data = line_bar_data.sort_values(by="count", ascending=False)
+    line_bar_data["medals_per_100"] = round(
+        100 * line_bar_data["Total"] / line_bar_data["count"], 1
+    )
+    return line_bar_data
