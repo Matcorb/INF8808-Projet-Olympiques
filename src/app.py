@@ -129,10 +129,7 @@ app.layout = html.Div(
                                     min=dates[0].day,
                                     max=dates[-1].day,
                                     value=dates[-1].day,
-                                    marks={
-                                        date.day: "February " + str(date.day) + "th"
-                                        for date in dates
-                                    },
+                                    marks={ date.day: "February " + str(date.day) + "th" for date in dates },
                                     step=None,
                                     tooltip={
                                         "placement": "bottom",
@@ -146,101 +143,30 @@ app.layout = html.Div(
                     ],
                     style={"backgroundColor": "#f9f0f0", "paddingBottom": "50px"},
                 ),
-                html.Div(
-                    [
-                        html.H2(
-                            children="Most Medaled Athletes and Countries per Event"
-                        ),
-                        html.Div(
-                            [
-                                html.H3(
-                                    children=[
-                                        "Certain countries and even athletes can also dominate specific disciplines without being one of the most medaled overall.",
-                                        html.Br(),
-                                        html.Br(),
-                                        "The bar chart below presents the most decorated athletes and countries in the various events. ",
-                                        "More information on a square can be seen by hovering over it.",
-                                    ],
-                                    style={"textAlign": "center"},
-                                ),
-                            ],
-                            style={
-                                "paddingTop": "20px",
-                                "width": "70%",
-                                "margin": "auto",
-                                "textAlign": "center",
-                            },
-                        ),
-                        html.Div(
-                            [
-                                html.Div(
-                                    [
-                                        dcc.Dropdown(
-                                            id="order-type-top-dropdown",
-                                            options=[
-                                                {
-                                                    "label": i.capitalize(),
-                                                    "value": i,
-                                                }
-                                                for i in order_types_top
-                                            ],
-                                            value="total",
-                                            clearable=False,
-                                            style={
-                                                "width": "200px",
-                                                "marginBottom": "10px",
-                                                "marginLeft": "10px",
-                                                "backgroundColor": "lightgrey",
-                                            },
-                                        ),
-                                        dcc.Checklist(
-                                            id="sort-method-checkbox",
-                                            options=[
-                                                {
-                                                    "label": " Sort by Weighted Medal Values",
-                                                    "value": "weighted",
-                                                }
-                                            ],
-                                            value=[],
-                                            style={
-                                                "display": "none",
-                                                "fontSize": "16px",
-                                            },
-                                        ),
-                                        dcc.RadioItems(
-                                            id="graph-type-selection",
-                                            options=[
-                                                {
-                                                    "label": i.capitalize(),
-                                                    "value": i,
-                                                }
-                                                for i in order_types_graph
-                                            ],
-                                            value="athlete",
-                                            labelStyle={
-                                                "display": "inline-block",
-                                                "marginRight": "20px",
-                                            },
-                                        ),
-                                    ],
-                                    style={"paddingRight": "10px"},
-                                ),
-                                html.Div(
-                                    [dcc.Graph(id="top-medals-graph")],
-                                    style={"flex": "1"},
-                                ),
-                                html.Div(
-                                    id="hover-data-box",
-                                    style={
-                                        "backgroundColor": "#84c1ff",
-                                        "paddingBottom": "50px",
-                                    },
-                                ),
-                            ],
-                            style={"display": "flex", "flexDirection": "column"},
-                        ),
-                    ],
-                    style={"backgroundColor": "#84c1ff", "paddingBottom": "50px"},
+                html.Div([
+                    html.H2("Most Medaled Athletes and Countries per Event", style={"textAlign": "center"}),
+                    dcc.Dropdown(
+                        id="order-type-top-dropdown",
+                        options=[{"label": i.capitalize(), "value": i} for i in order_types_top],
+                        value="total",
+                        clearable=False,
+                        style={"width": "300px", "margin": "10px auto", "display": "block"}
+                    ),
+                    dcc.Checklist(
+                        id="sort-method-checkbox",
+                        options=[{"label": " Sort by Weighted Medal Values","value": "weighted",}],
+                        value=[],
+                        style={"display": "none", "fontSize": "16px"},
+                    ),
+                    dcc.RadioItems(
+                        id="graph-type-selection",
+                        options=[{"label": i.capitalize(), "value": i} for i in order_types_graph],
+                        value="athlete",
+                        labelStyle={"display": "inline-block", "marginRight": "20px"}
+                    ),
+                    dcc.Graph(id="top-medals-graph"),
+                    html.Div(id="hover-data-box", style={"backgroundColor": "#84c1ff", "padding": "10px"})
+                ], style={"backgroundColor": "#f0f0f0", "padding": "20px", "marginBottom": "20px"}
                 ),
                 html.Div(
                     [
@@ -412,9 +338,14 @@ def update_top_figure(selected_top_order_type, graph_type, sort_method):
 def display_hover_data(hover_data, order_type, graph_type, current_data):
     ctx = callback_context
 
-    if not ctx.triggered or not hover_data or ctx.triggered[0]["prop_id"] in (
-        "order-type-top-dropdown.value",
-        "graph-type-selection.value",
+    if (
+        not ctx.triggered
+        or not hover_data
+        or ctx.triggered[0]["prop_id"]
+        in (
+            "order-type-top-dropdown.value",
+            "graph-type-selection.value",
+        )
     ):
         return html.Div(
             [
@@ -427,7 +358,7 @@ def display_hover_data(hover_data, order_type, graph_type, current_data):
                 "paddingBottom": "50px",
             },
         )
-    
+
     data = hover_data["points"][0]
     country_or_athlete = data["customdata"][0]
     discipline = data["y"]
@@ -453,7 +384,6 @@ def display_hover_data(hover_data, order_type, graph_type, current_data):
             "paddingBottom": "50px",
         },
     )
-
 
 
 # Viz 1
