@@ -65,46 +65,43 @@ def get_dates(dataframe):
 
 
 def get_top_medals(dataframe, medal_type, graph_type, sort_method):
-    # Removing Ice Hockey since pollutes the data
+    # Remove hockey since it pollutes the data
     dataframe = dataframe[dataframe["discipline"] != "Ice Hockey"]
 
-    # Sorting the dataframe
-    dataframe = dataframe.sort_values(
-        by=[
-            "discipline",
-            medal_type,
-            "athlete_name" if graph_type == "athlete" else "country",
-        ],
-        ascending=[True, False, True],
-    )
     dataframe = add_total_medals(dataframe, medal_type)
-    medal_sort = medal_type
-    if medal_type == "total" and len(sort_method) > 0:
+
+    sort_keys = [
+        "discipline",
+        medal_type,
+        "athlete_name" if graph_type == "athlete" else "country",
+    ]
+    sort_ascending = [True, False, True]
+
+    if medal_type == "total" and sort_method == "weighted":
         dataframe["official"] = (
             dataframe["gold"] * 10000 + dataframe["silver"] * 100 + dataframe["bronze"]
         )
-        medal_sort = "official"
+        sort_keys[1] = "official"
+
+    dataframe = dataframe.sort_values(by=sort_keys, ascending=sort_ascending)
+
     dataframe = (
         dataframe.groupby("discipline")
-        .apply(lambda x: x.sort_values(by=medal_sort, ascending=False))
+        .apply(lambda x: x.sort_values(by=sort_keys[1], ascending=False))
         .reset_index(drop=True)
     )
     dataframe["position"] = dataframe.groupby("discipline").cumcount() + 1
     dataframe["percent"] = dataframe[medal_type] / dataframe["total_medals"] * 100
     dataframe["position_label"] = dataframe["position"].apply(lambda x: f"Top {x}")
+
     return dataframe
 
 
 def add_total_medals(dataframe, medal_type):
-    total_medals_per_discipline = dataframe.groupby("discipline")[medal_type].sum()
-    return pd.merge(
-        dataframe,
-        total_medals_per_discipline.rename("total_medals"),
-        left_on="discipline",
-        right_index=True,
-        how="inner",
-        validate="many_to_many",
+    total_medals = (
+        dataframe.groupby("discipline")[medal_type].sum().rename("total_medals")
     )
+    return dataframe.merge(total_medals, on="discipline", how="inner")
 
 
 # Viz 1
