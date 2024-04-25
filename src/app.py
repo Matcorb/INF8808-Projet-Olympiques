@@ -197,8 +197,7 @@ app.layout = html.Div(
                                 html.Div(
                                     dcc.Dropdown(
                                         id="violin_graphs_filter",
-                                        # options=['Discipline', 'Country'],
-                                        options=["Discipline"],
+                                        options=['Discipline', 'Country'],
                                         value="Discipline",
                                         clearable=False,
                                         style={
@@ -249,8 +248,7 @@ app.layout = html.Div(
                                     [
                                         dcc.Dropdown(
                                             id="line_bar_graph_filter",
-                                            # options=['All', 'Won medals'],
-                                            options=["All"],
+                                            options=['All', 'Won medals'],
                                             value="All",
                                             clearable=False,
                                             style={
@@ -260,15 +258,15 @@ app.layout = html.Div(
                                                 "backgroundColor": "lightgrey",
                                             },
                                         ),
-                                        # dcc.RadioItems(
-                                        #     id='relative_medal_filter',
-                                        #     options=['Medals', 'Medals per 100'],
-                                        #     value='Medals',
-                                        #     labelStyle={
-                                        #         'display': 'inline-block',
-                                        #         'marginRight': '20px',
-                                        #     },
-                                        # )
+                                        dcc.RadioItems(
+                                            id='relative_medal_filter',
+                                            options=['Medals', 'Medals per 100'],
+                                            value='Medals',
+                                            labelStyle={
+                                                'display': 'inline-block',
+                                                'marginRight': '20px',
+                                            },
+                                        )
                                     ]
                                 ),
                                 html.Div(dcc.Graph(id="line_bar_graph")),
@@ -386,23 +384,31 @@ def display_hover_data(hover_data, order_type, graph_type, current_data):
     )
 
 
-# Viz 1
+# Viz 3
 @app.callback(
     Output("violin_graphs", "figure"), [Input("violin_graphs_filter", "value")]
 )
 def update_figure(violin_graphs_filter):
-    fig = violin_charts.get_plot(athletes, medals)
+    if violin_graphs_filter == 'Discipline':
+        fig = violin_charts.get_plot_discipline(athletes, medals)
+    else:
+        fig = violin_charts.get_plot_country(athletes, medals)
     return fig
 
 
 # Viz 4
 @app.callback(
-    Output("line_bar_graph", "figure"), [Input("line_bar_graph_filter", "value")]
+    Output("line_bar_graph", "figure"),
+    [
+        Input("line_bar_graph_filter", "value"),
+        Input("relative_medal_filter", "value"),
+    ]
 )
-def update_figure(violin_graphs_filter):
-    fig = line_bar_charts.get_plot(line_bar_data)
+def update_figure(line_bar_graph_filter, relative_medal_filter):
+    fig = line_bar_charts.get_plot(line_bar_data, line_bar_graph_filter, relative_medal_filter)
     return fig
 
 
 if __name__ == "__main__":
     app.run_server(debug=True)
+

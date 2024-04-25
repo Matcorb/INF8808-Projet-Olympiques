@@ -104,53 +104,39 @@ def add_total_medals(dataframe, medal_type):
     return dataframe.merge(total_medals, on="discipline", how="inner")
 
 
-# Viz 1
+# Viz 3
 def athlete_age(athletes):
-    athletes["birth_date"] = pd.to_datetime(athletes["birth_date"])
-    age_timedelta = datetime.now() - athletes["birth_date"]
-    athletes["age"] = age_timedelta // pd.Timedelta(365.25, unit="D")
-    athletes = athletes.dropna(
-        subset=["age"]
-    )  # Remove athletes whose age is unknown (nan)
+    athletes['birth_date'] = pd.to_datetime(athletes['birth_date'])
+    age_timedelta = datetime.now() - athletes['birth_date']
+    athletes['age'] = age_timedelta // pd.Timedelta(365.25, unit='D')
+    athletes = athletes.dropna(subset=['age']) # Remove athletes whose age is unknown (nan)
     return athletes
 
-
 def medal_athlete_age(medals, athletes):
-    medals["name"] = medals["athlete_name"]
+    medals['name'] = medals['athlete_name']
     medals = pd.merge(
-        medals[["name"]],
-        athletes[["name", "gender", "discipline", "age"]],
-        on="name",
-        how="left",
+        medals[['name']],
+        athletes[['name', 'gender', 'discipline', 'country', 'age']],
+        on='name',
+        how='left'
     )
     return medals
 
-
 # Viz 4
 def line_bar_data(athletes, medals_total):
-
+    
     # Preprocess athletes per country
-    athletes_per_country = pd.DataFrame(athletes["country"].value_counts())
-
+    athletes_per_country = pd.DataFrame(athletes['country'].value_counts())
+    
     # Preprocess medals per country
-    medals_total.index = medals_total["Country"]
+    medals_total.index = medals_total['Country']
     medals_total.drop(
-        columns=[
-            "Order",
-            "Country",
-            "Gold",
-            "Silver",
-            "Bronze",
-            "Order by Total",
-            "Country Code",
-        ],
-        inplace=True,
+        columns=['Order', 'Country', 'Gold', 'Silver', 'Bronze', 'Order by Total', 'Country Code'],
+        inplace=True
     )
-
+    
     # Create line-bar graph data
     line_bar_data = athletes_per_country.combine_first(medals_total).fillna(0)
-    line_bar_data = line_bar_data.sort_values(by="count", ascending=False)
-    line_bar_data["medals_per_100"] = round(
-        100 * line_bar_data["Total"] / line_bar_data["count"], 1
-    )
-    return line_bar_data
+    line_bar_data = line_bar_data.sort_values(by='count', ascending=False)
+    line_bar_data['medals_per_100'] = round(100 * line_bar_data['Total'] / line_bar_data['count'], 1)
+    return line_bar_data    
