@@ -82,11 +82,11 @@ def get_top_plot(df, type, graph_type):
         opacity=1,
     )
     fig.update_xaxes(
-        title_text=f"<b>{type.capitalize()} Medals Distribution by Discipline</b>",
+        title_text=f"{type.capitalize()} Medals Distribution by Discipline",
     )
     fig.update_yaxes(
         autorange="reversed",
-        title_text="<b>Discipline</b>",
+        title_text="Discipline",
         tickfont=dict(size=15),
     )
     fig.update_layout(
