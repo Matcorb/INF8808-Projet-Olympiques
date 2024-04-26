@@ -32,7 +32,7 @@ def get_plot(df, type, day):
         legend=dict(y=-0.2, xanchor="center", x=0.5),
         plot_bgcolor="#f9f0f0",
         paper_bgcolor="#f9f0f0",
-        font=dict(family="Roboto Slab, serif"),
+        font=dict(size=16, family="Roboto Slab, serif"),
     )
     return fig
 
@@ -93,7 +93,7 @@ def get_top_plot(df, type, graph_type):
         legend_traceorder="reversed",
         plot_bgcolor="#84c1ff",
         paper_bgcolor="#84c1ff",
-        font=dict(family="Roboto Slab, serif"),
+        font=dict(size=16, family="Roboto Slab, serif"),
     )
     fig.update_coloraxes(
         colorbar_title=f"{color_axis_title}<br>",

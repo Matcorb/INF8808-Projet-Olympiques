@@ -42,5 +42,5 @@ def get_plot(line_bar_data, line_bar_graph_filter, relative_medal_filter):
         yaxis2=dict(side='right', range=[0, 51], title=dict(text=yaxis_name), overlaying='y')
     )
     fig = go.Figure(data=data, layout=layout)
-    fig.update_layout(plot_bgcolor="#C0D9AF", paper_bgcolor="#C0D9AF", font=dict(size=14, family="Roboto Slab, serif"))
+    fig.update_layout(plot_bgcolor="#C0D9AF", paper_bgcolor="#C0D9AF", font=dict(size=16, family="Roboto Slab, serif"))
     return fig

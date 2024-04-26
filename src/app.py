@@ -47,18 +47,15 @@ app.layout = html.Div(
                 html.H3(
                     children=[
                         "The Olympics are one of the most viewed sporting events as it attracts fans from all over the world. The 2022 Winter Olympics were set in Beijing and saw 2893 athletes from 84 different countries competing for medals in 15 different disciplines. The following visualizations present an in depth analysis on the countries' and athletes' performances across the various sports.",
-                        html.Br(),
-                        html.Br(),
-                        "We did the work so you don't have to. Scroll down and enjoy!",
+                        " We did the work so you don't have to. Scroll down and enjoy!",
                     ],
-                    style={"textAlign": "center"},
+                    style={"textAlign": "justify"},
                 ),
             ],
             style={
                 "paddingTop": "30px",
                 "width": "70%",
                 "margin": "auto",
-                "textAlign": "center",
             },
         ),
         html.Img(
@@ -87,14 +84,13 @@ app.layout = html.Div(
                                         "even in terms of official rankings (determined by most golds followed by most silvers and finally most bronzes). ",
                                         "You can also use the slider available below the chart to visualize the top 5 countries at any date throughout the competition.",
                                     ],
-                                    style={"textAlign": "center"},
+                                    style={"textAlign": "justify"},
                                 ),
                             ],
                             style={
                                 "paddingTop": "20px",
                                 "width": "70%",
                                 "margin": "auto",
-                                "textAlign": "center",
                             },
                         ),
                         html.Div(
@@ -107,16 +103,15 @@ app.layout = html.Div(
                                     ],
                                     value="total medals",
                                     clearable=False,
+                                    searchable=False,
                                     style={
                                         "width": "200px",
                                         "marginBottom": "10px",
-                                        "marginLeft": "10px",
                                         "backgroundColor": "lightgrey",
                                         "fontFamily": "Roboto Slab, serif",
                                     },
                                 ),
                             ],
-                            style={"paddingRight": "10px"},
                         ),
                         html.Div(
                             [
@@ -129,28 +124,49 @@ app.layout = html.Div(
                                     min=dates[0].day,
                                     max=dates[-1].day,
                                     value=dates[-1].day,
-                                    marks={ date.day: "February " + str(date.day) + "th" for date in dates },
+                                    marks={ date.day: {"label": "February " + str(date.day) + "th", "style": {"fontSize": "15px"}} for date in dates },
                                     step=None,
                                     tooltip={
                                         "placement": "bottom",
                                         "always_visible": True,
                                         "template": "February {value}th 2022",
+                                        "style": {"fontSize": "16px"}
                                     },
                                 ),
                             ],
                             style={"flex": "1", "backgroundColor": "#f9f0f0"},
                         ),
                     ],
-                    style={"backgroundColor": "#f9f0f0", "paddingBottom": "50px"},
+                    style={"backgroundColor": "#f9f0f0", "paddingBottom": "100px", "paddingLeft": "10px", "paddingRight": "10px"},
                 ),
                 html.Div([
                     html.H2("Most Medaled Athletes and Countries per Event", style={"textAlign": "center"}),
+                    html.Div(
+                            [
+                                html.H3(
+                                    children=[
+                                        "Certain countries and even athletes can also dominate specific disciplines without being one of the most medaled overall.",
+                                        html.Br(),
+                                        html.Br(),
+                                        "The bar chart below presents the most decorated athletes and countries in the various events. ",
+                                        "More information on a square can be seen by hovering over it.",
+                                    ],
+                                    style={"textAlign": "justify"},
+                                ),
+                            ],
+                            style={
+                                "paddingTop": "20px",
+                                "width": "70%",
+                                "margin": "auto",
+                            },
+                        ),
                     dcc.Dropdown(
                         id="order-type-top-dropdown",
                         options=[{"label": i.capitalize(), "value": i} for i in order_types_top],
                         value="total",
+                        searchable=False,
                         clearable=False,
-                        style={"width": "300px", "margin": "10px auto", "display": "block"}
+                        style={"width": "200px", "marginBottom": "10px", "backgroundColor": "lightgrey", "fontFamily": "Roboto Slab, serif"},
                     ),
                     dcc.Checklist(
                         id="sort-method-checkbox",
@@ -166,7 +182,7 @@ app.layout = html.Div(
                     ),
                     dcc.Graph(id="top-medals-graph"),
                     html.Div(id="hover-data-box", style={"backgroundColor": "#84c1ff", "padding": "10px"})
-                ], style={"backgroundColor": "#f0f0f0", "padding": "20px", "marginBottom": "20px"}
+                ], style={"backgroundColor": "#84c1ff", "paddingBottom": "100px", "paddingLeft": "10px", "paddingRight": "10px"}
                 ),
                 html.Div(
                     [
@@ -182,37 +198,36 @@ app.layout = html.Div(
                                         "according to gender and either discipline or country of origin. With these charts, ",
                                         "we can see which age groups were the most represented in number of athletes and which age groups won the most medals.",
                                     ],
-                                    style={"textAlign": "center"},
+                                    style={"textAlign": "justify"},
                                 ),
                             ],
                             style={
                                 "paddingTop": "20px",
                                 "width": "70%",
                                 "margin": "auto",
-                                "textAlign": "center",
                             },
                         ),
                         html.Div(
                             [
-                                html.Div(
+                                html.Div([
                                     dcc.Dropdown(
                                         id="violin_graphs_filter",
                                         options=['Discipline', 'Country'],
                                         value="Discipline",
                                         clearable=False,
+                                        searchable=False,
                                         style={
                                             "width": "200px",
                                             "marginBottom": "10px",
-                                            "marginLeft": "10px",
                                             "backgroundColor": "lightgrey",
                                         },
                                     )
-                                ),
+                            ]),
                                 html.Div(dcc.Graph(id="violin_graphs")),
                             ]
                         ),
                     ],
-                    style={"backgroundColor": "#FFFFE0", "paddingBottom": "50px"},
+                    style={"backgroundColor": "#FFFFE0", "paddingBottom": "100px", "paddingLeft": "10px", "paddingRight": "10px"},
                 ),
                 html.Div(
                     [
@@ -232,14 +247,13 @@ app.layout = html.Div(
                                         "We can therefore see that, as an example, the Netherlands gained many medals despite its low representation (17 medals for 41 athletes) ",
                                         "and that Czech Republic on the other hand didn't see the same success (2 medals for 115 athletes).",
                                     ],
-                                    style={"textAlign": "center"},
+                                    style={"textAlign": "justify"},
                                 ),
                             ],
                             style={
                                 "paddingTop": "20px",
                                 "width": "70%",
                                 "margin": "auto",
-                                "textAlign": "center",
                             },
                         ),
                         html.Div(
@@ -251,10 +265,10 @@ app.layout = html.Div(
                                             options=['All', 'Won medals'],
                                             value="All",
                                             clearable=False,
+                                            searchable=False,
                                             style={
                                                 "width": "200px",
                                                 "marginBottom": "10px",
-                                                "marginLeft": "10px",
                                                 "backgroundColor": "lightgrey",
                                             },
                                         ),
@@ -267,16 +281,54 @@ app.layout = html.Div(
                                                 'marginRight': '20px',
                                             },
                                         )
-                                    ]
+                                    ],
                                 ),
                                 html.Div(dcc.Graph(id="line_bar_graph")),
                             ]
                         ),
                     ],
-                    style={"backgroundColor": "#C0D9AF", "paddingBottom": "50px"},
+                    style={"backgroundColor": "#C0D9AF", "paddingBottom": "100px", "paddingLeft": "10px", "paddingRight": "10px"},
                 ),
+                html.Div(
+                            [
+                                html.H2(
+                                    children=[
+                                        "Thank you for passing by!",
+                                    ],
+                                    style={"textAlign": "center", "paddingBottom": "30px"},
+                                ),
+                                html.H3(
+                                    children=[
+                                        "To find out more or explore further on your own, the data used for this website comes from ",
+                                        html.A("https://www.kaggle.com/datasets/piterfm/beijing-2022-olympics/", href="https://www.kaggle.com/datasets/piterfm/beijing-2022-olympics/",),
+                                        ". Only the 'athletes.csv' and 'medals.csv' datasets were used for these visualizations and new datasets were created from them to retrieve only the relevant information. ",
+                                        "More data on specific events is available in other datasets that weren't used for this website ",
+                                        "such as player statistics and results for the ice hockey tournament and information on technical officials.",
+                                        html.Br(),
+                                        html.Br(),
+                                        html.Br(),
+                                        "Development team : Shady Assaad, Mathieu Corbishley, Jesse Giroux, Vincent Hua, Mathieu Prévost and Louis-Philippe de Tilly"
+                                    ],
+                                    style={"textAlign": "justify"},
+                                )
+                            ],
+                            style={
+                                "paddingTop": "50px",
+                                "width": "70%",
+                                "margin": "auto",
+                            },
+                        ),
+                        html.Img(
+            src="/assets/images/olympic-rings.jpg",
+            style={
+                "mixBlendMode": "multiply",
+                "width": "60%",
+                "display": "block",
+                "margin": "auto",
+            },
+        ),
             ],
-            style={"display": "flex", "flexDirection": "column"},
+            style={"display": "flex", "flexDirection": "column", "margin": "50px"},
         ),
     ],
     style={"padding": "20px", "backgroundColor": "#f9f0f0"},
