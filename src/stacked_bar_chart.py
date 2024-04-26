@@ -43,9 +43,9 @@ def get_top_plot(df, type, graph_type):
     df[type] = df[type].astype(int)
 
     color_axis_title = (
-        f"<b>Number of medals</b>"
+        f"Number of medals"
         if type == "total"
-        else f"<b>Number of {type.capitalize()} medals</b>"
+        else f"Number of {type.capitalize()} medals"
     )
 
     if type == "total":
